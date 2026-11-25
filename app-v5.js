@@ -468,6 +468,33 @@
     });
   }
 
+  // 13. Mobile Collapsible Chapter Drawers & Experience Details
+  function initMobileDrawers() {
+    document.querySelectorAll('[data-drawer-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const sticky = btn.closest('.chapter-sticky');
+        const drawer = sticky?.querySelector('.chapter-detail-drawer');
+        if (!drawer) return;
+        const open = drawer.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        const icon = btn.querySelector('span');
+        if (icon) icon.textContent = open ? '－' : '＋';
+      });
+    });
+
+    document.querySelectorAll('[data-exp-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.exp-card');
+        if (!card) return;
+        const open = card.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open
+          ? (btn.dataset.closeText || '收起 －')
+          : (btn.dataset.openText || '展开 ＋');
+      });
+    });
+  }
+
   initImages();
   initScrollChrome();
   initReveal();
@@ -480,4 +507,5 @@
   initViewportVideos();
   initLightbox();
   initCopyEmail();
+  initMobileDrawers();
 })();

@@ -7,8 +7,8 @@
   <meta name="description" content="屈国庆（Felix Qu）作品集：AI 短剧视觉体系与动态分镜、商业级分层出图 Image Skill 与多模型 Agent 工作流、微信小程序产品落地与商业视觉全案。">
   <meta name="theme-color" content="#090b10">
   <link rel="alternate" hreflang="en" href="en.html">
-  <link rel="stylesheet" href="styles-v5.css?v=5.3">
-  <script src="app-v5.js?v=5.3" defer></script>
+  <link rel="stylesheet" href="styles-v5.css?v=6.1">
+  <script src="app-v5.js?v=6.1" defer></script>
 </head>
 <body data-locale="zh">
   <a class="skip-link" href="#drama">跳至核心作品</a>
@@ -35,6 +35,21 @@
       <!-- HERO -->
       <section class="hero-section" aria-labelledby="hero-name">
         <div class="container hero-grid">
+          <div class="mobile-hero-head">
+            <div class="mobile-hero-id">
+              <img src="assets/portrait.webp" width="731" height="900" alt="" loading="eager" decoding="async">
+              <div>
+                <strong>屈国庆 <span>Felix Qu</span></strong>
+                <p>AIGC 商业视觉 · AI 短剧 · Agent 管线</p>
+              </div>
+            </div>
+            <div class="mobile-hero-pills">
+              <span class="is-gold">★ WaytoAGI 获奖</span>
+              <span class="is-gold">◆ Coze 黑客松获奖</span>
+              <span>4年+ 商业全案</span>
+            </div>
+          </div>
+
           <div class="hero-copy">
             <p class="eyebrow">AIGC 商业视觉设计师 · 短剧视觉与 Agent 工作流开发</p>
             <h1 id="hero-name" class="hero-title">屈国庆<span class="hero-title-en">Felix Qu</span></h1>
@@ -104,26 +119,31 @@
         <div class="container split-chapter">
           <aside class="chapter-sticky" data-reveal>
             <p class="chapter-index">01 / 04 · AI SHORT DRAMA</p>
-            <h2 id="drama-title" class="chapter-title">AI 短剧视觉体系与工业化动态分镜</h2>
-            <p class="chapter-lead">
-              主导多题材 AI 短剧的美术设定、角色三视图、场景空间与动态分镜制作。以节点式资产拓扑替代盲目抽卡，确保多集跨镜头下角色面容、服化道与光影色彩高度统一。
-            </p>
-            <dl class="meta-list">
-              <div class="meta-row"><dt>担任角色</dt><dd>独立视觉主创</dd></div>
-              <div class="meta-row"><dt>生产管线</dt><dd>三视图锚定 → 节点拓扑 → 动态视频</dd></div>
-              <div class="meta-row"><dt>交付范围</dt><dd>人设/场景库 · 分镜视频 · 宣发海报</dd></div>
-            </dl>
-            <div class="pill-group">
-              <span class="tech-pill">ComfyUI</span>
-              <span class="tech-pill">Midjourney</span>
-              <span class="tech-pill">多图节点工作流</span>
-              <span class="tech-pill">剪映成片包装</span>
+            <div class="chapter-head-bar">
+              <h2 id="drama-title" class="chapter-title">AI 短剧视觉体系与工业化动态分镜</h2>
+              <button class="mobile-drawer-btn" type="button" aria-expanded="false" data-drawer-toggle>项目拆解 <span aria-hidden="true">＋</span></button>
             </div>
-            <ul class="chapter-highlights">
-              <li>角色正侧背三视图 + 服化道独立资产，从源头锁死跨镜头长相与服饰细节。</li>
-              <li>百镜级分镜节点矩阵批量串联“人 + 景 + 物”，支撑长篇季播剧高频更新。</li>
-              <li>基于视听语言拆解景别与运镜节奏，协同图生视频完成动态成片。</li>
-            </ul>
+            <div class="chapter-detail-drawer">
+              <p class="chapter-lead">
+                主导多题材 AI 短剧的美术设定、角色三视图、场景空间与动态分镜制作。以节点式资产拓扑替代盲目抽卡，确保多集跨镜头下角色面容、服化道与光影色彩高度统一。
+              </p>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>担任角色</dt><dd>独立视觉主创</dd></div>
+                <div class="meta-row"><dt>生产管线</dt><dd>三视图锚定 → 节点拓扑 → 动态视频</dd></div>
+                <div class="meta-row"><dt>交付范围</dt><dd>人设/场景库 · 分镜视频 · 宣发海报</dd></div>
+              </dl>
+              <div class="pill-group">
+                <span class="tech-pill">ComfyUI</span>
+                <span class="tech-pill">Midjourney</span>
+                <span class="tech-pill">多图节点工作流</span>
+                <span class="tech-pill">剪映成片包装</span>
+              </div>
+              <ul class="chapter-highlights">
+                <li>角色正侧背三视图 + 服化道独立资产，从源头锁死跨镜头长相与服饰细节。</li>
+                <li>百镜级分镜节点矩阵批量串联“人 + 景 + 物”，支撑长篇季播剧高频更新。</li>
+                <li>基于视听语言拆解景别与运镜节奏，协同图生视频完成动态成片。</li>
+              </ul>
+            </div>
           </aside>
 
           <div class="chapter-showcase">
@@ -254,27 +274,32 @@
         <div class="container split-chapter">
           <aside class="chapter-sticky" data-reveal>
             <p class="chapter-index">02 / 04 · AGENT &amp; IMAGE SKILL</p>
-            <h2 id="pipeline-title" class="chapter-title">商业级出图 Skill 与多模型 Agent 编排</h2>
-            <p class="chapter-lead">
-              把多年商业摄影布光、光学景深与构图逻辑封装为可复用的 Image Skill 与 ComfyUI 自定义节点。结合 Claude Code、Codex 与 Coze 多模型路由，彻底解决 AI 原生画面模板化、商品轮廓畸变与光影假贴图痛点。
-            </p>
-            <dl class="meta-list">
-              <div class="meta-row"><dt>担任角色</dt><dd>独立研发与工作流架构</dd></div>
-              <div class="meta-row"><dt>核心机制</dt><dd>SubjectLockCanvas 主体像素锁死</dd></div>
-              <div class="meta-row"><dt>质量关卡</dt><dd>LayerIntegrityGate 蒙版自动校验</dd></div>
-            </dl>
-            <div class="pill-group">
-              <span class="tech-pill">ComfyUI 自定义节点</span>
-              <span class="tech-pill">GPT-Image-2</span>
-              <span class="tech-pill">Claude Code</span>
-              <span class="tech-pill">Codex</span>
-              <span class="tech-pill">Coze</span>
+            <div class="chapter-head-bar">
+              <h2 id="pipeline-title" class="chapter-title">商业级出图 Skill 与多模型 Agent 编排</h2>
+              <button class="mobile-drawer-btn" type="button" aria-expanded="false" data-drawer-toggle>项目拆解 <span aria-hidden="true">＋</span></button>
             </div>
-            <ul class="chapter-highlights">
-              <li>SubjectLockCanvas：商品实拍底图入轨后零形变保护，确保品牌标识与工业结构不跑偏。</li>
-              <li>ConstrainedLightLayer：依据蒙版权限生成接触地面阴影与边缘环境受光，避免悬空感。</li>
-              <li>多模型协同路由：逻辑推理与提示词结构化交由 LLM，像素重绘与合成由图像节点闭环执行。</li>
-            </ul>
+            <div class="chapter-detail-drawer">
+              <p class="chapter-lead">
+                把多年商业摄影布光、光学景深与构图逻辑封装为可复用的 Image Skill 与 ComfyUI 自定义节点。结合 Claude Code、Codex 与 Coze 多模型路由，彻底解决 AI 原生画面模板化、商品轮廓畸变与光影假贴图痛点。
+              </p>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>担任角色</dt><dd>独立研发与工作流架构</dd></div>
+                <div class="meta-row"><dt>核心机制</dt><dd>SubjectLockCanvas 主体像素锁死</dd></div>
+                <div class="meta-row"><dt>质量关卡</dt><dd>LayerIntegrityGate 蒙版自动校验</dd></div>
+              </dl>
+              <div class="pill-group">
+                <span class="tech-pill">ComfyUI 自定义节点</span>
+                <span class="tech-pill">GPT-Image-2</span>
+                <span class="tech-pill">Claude Code</span>
+                <span class="tech-pill">Codex</span>
+                <span class="tech-pill">Coze</span>
+              </div>
+              <ul class="chapter-highlights">
+                <li>SubjectLockCanvas：商品实拍底图入轨后零形变保护，确保品牌标识与工业结构不跑偏。</li>
+                <li>ConstrainedLightLayer：依据蒙版权限生成接触地面阴影与边缘环境受光，避免悬空感。</li>
+                <li>多模型协同路由：逻辑推理与提示词结构化交由 LLM，像素重绘与合成由图像节点闭环执行。</li>
+              </ul>
+            </div>
           </aside>
 
           <div class="chapter-showcase">
@@ -381,21 +406,26 @@
         <div class="container split-chapter">
           <aside class="chapter-sticky" data-reveal>
             <p class="chapter-index">03 / 04 · AI MINI-PROGRAMS</p>
-            <h2 id="apps-title" class="chapter-title">2 款 AI 微信小程序与产品端到端落地</h2>
-            <p class="chapter-lead">
-              不止停留在静态视觉稿：独立主导 2 款垂直场景小程序的产品交互架构、UI 视觉规范、AIGC 专属素材体系搭建，并借助 AI 编程工具打通前端界面与后端 Agent 接口调用，完成从 0 到 1 上线闭环。
-            </p>
-            <dl class="meta-list">
-              <div class="meta-row"><dt>代表作品 01</dt><dd>大丰收 · 农机服务小程序</dd></div>
-              <div class="meta-row"><dt>代表作品 02</dt><dd>析卷 · AI 试卷分析平台</dd></div>
-              <div class="meta-row"><dt>竞赛荣誉</dt><dd>Coze &amp; WaytoAGI 双赛获奖</dd></div>
-            </dl>
-            <div class="pill-group">
-              <span class="tech-pill">微信小程序</span>
-              <span class="tech-pill">适老化大字 UI</span>
-              <span class="tech-pill">Coze Agent</span>
-              <span class="tech-pill">Claude Code</span>
-              <span class="tech-pill">Codex</span>
+            <div class="chapter-head-bar">
+              <h2 id="apps-title" class="chapter-title">2 款 AI 微信小程序与产品端到端落地</h2>
+              <button class="mobile-drawer-btn" type="button" aria-expanded="false" data-drawer-toggle>项目拆解 <span aria-hidden="true">＋</span></button>
+            </div>
+            <div class="chapter-detail-drawer">
+              <p class="chapter-lead">
+                不止停留在静态视觉稿：独立主导 2 款垂直场景小程序的产品交互架构、UI 视觉规范、AIGC 专属素材体系搭建，并借助 AI 编程工具打通前端界面与后端 Agent 接口调用，完成从 0 到 1 上线闭环。
+              </p>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>代表作品 01</dt><dd>大丰收 · 农机服务小程序</dd></div>
+                <div class="meta-row"><dt>代表作品 02</dt><dd>析卷 · AI 试卷分析平台</dd></div>
+                <div class="meta-row"><dt>竞赛荣誉</dt><dd>Coze &amp; WaytoAGI 双赛获奖</dd></div>
+              </dl>
+              <div class="pill-group">
+                <span class="tech-pill">微信小程序</span>
+                <span class="tech-pill">适老化大字 UI</span>
+                <span class="tech-pill">Coze Agent</span>
+                <span class="tech-pill">Claude Code</span>
+                <span class="tech-pill">Codex</span>
+              </div>
             </div>
           </aside>
 
@@ -524,6 +554,12 @@
                 <img class="reveal-img" src="assets/apps/xijuan-hero.webp" width="1600" height="1000" alt="析卷 AI 试卷分析平台云上见成长 3D 主视觉" loading="lazy" decoding="async">
                 <span class="zoom-badge">放大查看主视觉 ↗</span>
               </button>
+
+              <div class="mobile-chip-strip">
+                <span>01 智能寻边扫描</span>
+                <span>02 多模型异步批改</span>
+                <span>03 错题图谱</span>
+              </div>
 
               <div class="xijuan-steps">
                 <div class="xijuan-step">
@@ -768,6 +804,7 @@
                     </div>
                     <span class="exp-date">2023.08 — 2026.09</span>
                   </div>
+                  <button class="mobile-exp-toggle" type="button" aria-expanded="false" data-exp-toggle data-open-text="展开职责详情 ＋" data-close-text="收起职责详情 －">展开职责详情 ＋</button>
                   <ul class="exp-bullets">
                     <li><strong>高转化页面与海报矩阵：</strong>主导核心课程全链路线上视觉，独立完成宣传主视觉海报、小鹅通课程详情长页与公众号推文配图，重构视觉动线提升转化。</li>
                     <li><strong>包装装帧与线下物料：</strong>负责定制笔记本装帧、文创帆布包及大型沙龙展板、主背景桁架、展架与导视横幅标准化印前落地。</li>
@@ -784,6 +821,7 @@
                     </div>
                     <span class="exp-date">2022.04 — 2023.06</span>
                   </div>
+                  <button class="mobile-exp-toggle" type="button" aria-expanded="false" data-exp-toggle data-open-text="展开职责详情 ＋" data-close-text="收起职责详情 －">展开职责详情 ＋</button>
                   <ul class="exp-bullets">
                     <li><strong>商业产品摄影与精修：</strong>承担整车及核心部件商业实拍与后期精修，优化光线质感与空间构图，搭建品牌产品图库。</li>
                     <li><strong>详情长页与画册版式：</strong>提炼产品卖点与技术参数，完成高说服力产品详情长页、宣传折页及公众号长图设计。</li>

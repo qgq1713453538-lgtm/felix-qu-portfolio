@@ -1822,58 +1822,70 @@ dialog.lightbox::backdrop {
   }
 }
 
-/* Floating Mobile Bottom Dock (hidden on desktop) */
-.mobile-dock {
+/* Mobile-Only Helpers & Bottom Dock (hidden on desktop) */
+.mobile-dock,
+.mobile-hero-head,
+.mobile-drawer-btn,
+.mobile-chip-strip,
+.mobile-exp-toggle {
   display: none;
+}
+
+.chapter-head-bar {
+  display: block;
+}
+
+.chapter-detail-drawer {
+  display: block;
 }
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 66px;
   }
   .container {
-    width: calc(100% - 28px);
+    width: calc(100% - 20px);
   }
 
   /* Compact Header + Bottom Navigation Dock */
   .site-header {
-    top: 10px;
-    width: calc(100% - 24px);
-    padding: 7px 10px 7px 14px;
+    top: 8px;
+    width: calc(100% - 20px);
+    padding: 6px 8px 6px 13px;
     gap: 8px;
   }
   .site-nav {
     display: none;
   }
   .lang-switch {
-    padding: 5px 11px;
-    font-size: 12px;
+    padding: 4px 10px;
+    font-size: 11.5px;
   }
 
   .mobile-dock {
     position: fixed;
     left: 50%;
-    bottom: max(12px, env(safe-area-inset-bottom));
+    bottom: max(10px, env(safe-area-inset-bottom));
     transform: translateX(-50%);
-    width: min(calc(100% - 24px), 400px);
+    width: min(calc(100% - 20px), 400px);
     z-index: 105;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 3px;
-    padding: 5px;
+    padding: 4px;
     border-radius: 999px;
     backdrop-filter: blur(18px) saturate(160%);
     -webkit-backdrop-filter: blur(18px) saturate(160%);
     transition: background-color 0.18s var(--ease-out), border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
   }
   .mobile-dock[data-dock-theme="dark"] {
-    background: rgba(14, 17, 25, 0.88);
+    background: rgba(14, 17, 25, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: var(--dark-text);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.48);
   }
   .mobile-dock[data-dock-theme="light"] {
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(20, 24, 29, 0.12);
     color: var(--light-text);
     box-shadow: 0 12px 30px rgba(20, 24, 29, 0.12);
@@ -1899,69 +1911,90 @@ dialog.lightbox::backdrop {
     color: #ffffff;
   }
 
-  /* Tighter Vertical Cadence & Edge-to-Edge Cards */
+  /* Screen 1: Visual-First Mobile Hero (Avatar + Visual Stage + CTAs above fold) */
   .hero-section {
-    padding: 76px 0 42px;
+    padding: 64px 0 28px;
   }
   .hero-grid {
-    gap: 24px;
-  }
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-    margin-bottom: 12px;
-  }
-  .eyebrow::before {
-    width: 14px;
-  }
-  .hero-title {
-    font-size: 36px;
-  }
-  .hero-title-en {
-    margin-left: 10px;
-    font-size: 0.52em;
-  }
-  .hero-tagline {
-    font-size: 18.5px;
-    margin-top: 12px;
-  }
-  .hero-badges {
-    margin-top: 16px;
-    gap: 6px;
-  }
-  .hero-badges li {
-    padding: 5px 10px;
-    font-size: 11.5px;
-  }
-  .hero-author {
-    margin-top: 18px;
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
   }
-  .hero-portrait {
-    width: 48px;
-    height: 60px;
+  .hero-grid > * {
+    min-width: 0;
+    max-width: 100%;
   }
-  .hero-author p {
-    font-size: 12.5px;
-  }
-  .hero-actions {
+  .mobile-hero-head {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 18px;
+    gap: 8px;
+    order: 1;
   }
-  .hero-actions .btn {
-    width: 100%;
-    padding: 11px 12px;
+  .mobile-hero-id {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .mobile-hero-id img {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: top center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    flex-shrink: 0;
+  }
+  .mobile-hero-id strong {
+    display: block;
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--dark-text);
+  }
+  .mobile-hero-id strong span {
+    font-weight: 500;
     font-size: 13px;
+    color: var(--dark-muted);
+    margin-left: 6px;
+  }
+  .mobile-hero-id p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .mobile-hero-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .mobile-hero-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-hero-pills span {
+    flex: 0 0 auto;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dark-border);
+    color: #d6dce6;
+  }
+  .mobile-hero-pills span.is-gold {
+    background: var(--gold-soft);
+    border-color: rgba(229, 184, 105, 0.34);
+    color: #f6d89c;
   }
 
-  /* Hero Compare Frame: 4:3 Tall Aspect & Non-Colliding Staggered Labels */
+  .hero-stage {
+    order: 2;
+    gap: 8px;
+  }
   .compare-frame {
-    aspect-ratio: 4 / 3;
-    border-radius: 18px;
+    aspect-ratio: 5 / 4;
+    border-radius: 16px;
   }
   .compare-label {
     font-size: 10.5px;
@@ -1982,56 +2015,141 @@ dialog.lightbox::backdrop {
     font-size: 14px;
   }
   .compare-caption-bar {
-    font-size: 11.5px;
+    font-size: 11px;
+    min-width: 0;
+  }
+  .compare-caption-bar span:first-child {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .hero-index-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .hero-index-card {
-    padding: 10px 11px;
-  }
-  .hero-index-card strong {
-    font-size: 12.5px;
+    display: none;
   }
 
-  /* Chapters & Cards */
+  .hero-copy {
+    order: 3;
+  }
+  .hero-copy > :not(.hero-actions) {
+    display: none;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  /* Compact 2-Line Chapter Header + Optional Collapsible Drawer */
   .chapter-section,
   .gallery-section {
-    padding: 44px 0;
+    padding: 32px 0;
   }
   .atmosphere-bridge {
-    height: 64px;
+    height: 44px;
+  }
+  .split-chapter {
+    gap: 14px;
+  }
+  .chapter-index {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .chapter-head-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
   .chapter-title {
-    font-size: 26px;
+    font-size: 21px;
+    line-height: 1.22;
+  }
+  .mobile-drawer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--dark-border-strong);
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .chapter-detail-drawer {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    background: var(--dark-surface);
+    border: 1px solid var(--dark-border);
+  }
+  .chapter-detail-drawer.is-open {
+    display: block;
   }
   .chapter-lead {
-    font-size: 14.5px;
-    margin-top: 12px;
+    font-size: 13.5px;
+    margin-top: 0;
   }
   .meta-list {
-    margin-top: 18px;
-    padding-top: 14px;
-    gap: 9px;
+    margin-top: 14px;
+    padding-top: 12px;
+    gap: 8px;
   }
   .chapter-highlights {
-    margin-top: 16px;
-    gap: 8px;
+    margin-top: 12px;
+    gap: 7px;
+  }
+
+  /* Strip Verbose Text Walls Inside Cards (Visual-First) */
+  .chapter-showcase {
+    gap: 14px;
   }
   .showcase-card,
   .commercial-block {
-    padding: 15px;
-    border-radius: 18px;
-    gap: 14px;
+    padding: 11px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .card-head,
+  .block-head {
+    align-items: center;
+    gap: 8px;
   }
   .card-head h3,
   .block-head h3 {
-    font-size: 17px;
+    font-size: 15.5px;
+    line-height: 1.3;
+  }
+  .card-tag,
+  .block-tools {
+    font-size: 10.5px;
+    padding: 3px 8px;
   }
   .card-head p,
-  .block-head p {
-    font-size: 13px;
+  .block-head p,
+  .editorial-header p,
+  .resume-top p,
+  .node-thumb-pair,
+  .app-brand-id p,
+  .palette-dots,
+  .xijuan-steps,
+  .competency-card p,
+  .aside-card p,
+  .tool-tile span,
+  .shot-card figcaption span,
+  .award-badge span {
+    display: none;
   }
 
   /* Native Horizontal Scrollable Pill Bars */
@@ -2041,8 +2159,8 @@ dialog.lightbox::backdrop {
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    margin-inline: -4px;
-    padding: 2px 4px 4px;
+    margin-inline: -2px;
+    padding: 2px;
   }
   .tab-bar::-webkit-scrollbar,
   .filter-bar::-webkit-scrollbar {
@@ -2052,69 +2170,125 @@ dialog.lightbox::backdrop {
   .filter-btn {
     flex: 0 0 auto;
     white-space: nowrap;
-    padding: 7px 13px;
-    font-size: 12.5px;
+    padding: 6px 12px;
+    font-size: 12px;
   }
 
-  /* Chapter 01 Drama Grids */
-  .node-thumb-pair,
-  .grid-2,
-  .xijuan-steps,
-  .award-row,
-  .competency-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  /* Visual-First Card Ordering: Reel & Finished Renders First */
+  #drama .chapter-showcase > article:nth-child(3) {
+    order: 1;
   }
-  .node-thumb-card img {
-    width: 64px;
-    height: 42px;
+  #drama .chapter-showcase > article:nth-child(2) {
+    order: 2;
+  }
+  #drama .chapter-showcase > article:nth-child(1) {
+    order: 3;
+  }
+  #pipeline .chapter-showcase > article:nth-child(2) {
+    order: 1;
+  }
+  #pipeline .chapter-showcase > article:nth-child(1) {
+    order: 2;
+  }
+
+  /* Chapter 01 & 02: Peek-Ahead Horizontal Carousels & 2x2 Filmstrip */
+  #drama .grid-2,
+  #pipeline .grid-2 {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 8px;
+  }
+  #drama .grid-2::-webkit-scrollbar,
+  #pipeline .grid-2::-webkit-scrollbar {
+    display: none;
+  }
+  #drama .grid-2 > *,
+  #pipeline .grid-2 > * {
+    scroll-snap-align: start;
   }
   .grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 8px;
+  }
+  .shot-card {
+    gap: 5px;
+  }
+  .shot-card figcaption {
+    font-size: 11.5px;
   }
   .zoom-badge {
-    font-size: 11px;
-    padding: 5px 9px;
+    font-size: 10.5px;
+    padding: 4px 8px;
     right: 8px;
     bottom: 8px;
   }
 
-  /* Chapter 02 Pipeline 2x2 Matrix */
+  /* Chapter 02 Compact Pipeline Pill Strip */
   .pipeline-diagram {
-    padding: 12px;
-  }
-  .pipeline-nodes {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .pipeline-node {
     padding: 10px;
   }
+  .pipeline-nodes {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .pipeline-nodes::-webkit-scrollbar {
+    display: none;
+  }
+  .pipeline-node {
+    flex: 0 0 auto;
+    padding: 8px 11px;
+    gap: 2px;
+  }
   .pipeline-node strong {
-    font-size: 12.5px;
+    font-size: 12px;
   }
   .pipeline-node span {
-    font-size: 11px;
+    display: none;
   }
   .pipeline-readout {
-    padding: 12px;
-    margin-top: 10px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    gap: 4px;
+  }
+  .pipeline-readout strong {
+    font-size: 12.5px;
+  }
+  .pipeline-readout p {
+    font-size: 12px;
   }
 
-  /* Chapter 03 Single Interactive Phone Stage + 2x2 Machines */
+  /* Chapter 03 Single Interactive Phone Stage + 4-Across Machine Strip */
+  .app-brand-bar {
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+  .app-brand-id img {
+    width: 34px;
+    height: 34px;
+  }
+  .app-brand-id h3 {
+    font-size: 15.5px;
+  }
   .phone-shell-side {
     display: none;
   }
   .phone-trio {
     display: block;
-    max-width: 256px;
+    max-width: 248px;
     margin-inline: auto;
   }
   .phone-shell.is-featured {
     transform: none;
-    padding: 9px;
-    border-radius: 26px;
+    padding: 8px;
+    border-radius: 24px;
   }
   .phone-step-btn {
     display: grid;
@@ -2126,33 +2300,78 @@ dialog.lightbox::backdrop {
     text-align: center;
   }
   .machine-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .machine-tile {
+    padding: 6px 4px;
+  }
+  .machine-tile-img {
+    height: 54px;
+    margin-bottom: 4px;
+    padding: 4px;
+  }
+  .machine-tile-img img {
+    max-height: 46px;
+  }
+  .machine-tile strong {
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+  .machine-tile span {
+    display: none;
+  }
+
+  .mobile-chip-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .mobile-chip-strip span {
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--dark-surface-2);
+    border: 1px solid var(--dark-border);
+    color: #d5dce6;
+  }
+  .award-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
-  .machine-tile {
-    padding: 10px 8px;
-  }
-  .machine-tile-img {
-    height: 72px;
-    margin-bottom: 7px;
-  }
-  .machine-tile-img img {
-    max-height: 60px;
-  }
-  .xijuan-step {
-    padding: 12px 14px;
-  }
   .award-badge {
-    padding: 12px;
+    padding: 10px;
+    gap: 8px;
+  }
+  .award-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .award-badge strong {
+    font-size: 12px;
+    line-height: 1.3;
   }
 
   /* Chapter 04 Zero-Orphan Course Grid & Swipeable Lookbook Carousels */
+  .editorial-header {
+    padding-bottom: 16px;
+  }
   .editorial-header h2 {
-    font-size: 28px;
+    font-size: 26px;
+  }
+  .filter-bar {
+    margin-top: 14px;
+  }
+  .commercial-groups {
+    gap: 16px;
+    margin-top: 16px;
   }
   .course-strip-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 8px;
   }
   .course-strip-grid .light-media-btn:first-child {
     grid-column: 1 / -1;
@@ -2162,12 +2381,12 @@ dialog.lightbox::backdrop {
     display: grid;
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 62%;
+    grid-auto-columns: 64%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    gap: 10px;
-    padding-bottom: 4px;
+    gap: 8px;
+    padding-bottom: 2px;
   }
   .ev-strip-5::-webkit-scrollbar,
   .chair-square-row::-webkit-scrollbar,
@@ -2182,62 +2401,116 @@ dialog.lightbox::backdrop {
     display: grid;
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 78%;
+    grid-auto-columns: 80%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    gap: 10px;
-    padding-bottom: 4px;
+    gap: 8px;
+    padding-bottom: 2px;
   }
   .chair-square-row .light-media-btn,
   .chair-wide-row .light-media-btn {
     scroll-snap-align: start;
   }
 
-  /* Chapter 05 Resume Mobile 4x2 Tools & Contact */
+  /* Chapter 05 Compact Scannable Resume */
   .resume-section {
-    padding: 32px 0 36px;
+    padding: 20px 0 30px;
   }
   .resume-card {
-    padding: 18px 16px;
-    border-radius: 20px;
-    gap: 22px;
+    padding: 16px 14px;
+    border-radius: 18px;
+    gap: 16px;
+  }
+  .resume-top {
+    padding-bottom: 14px;
+    gap: 12px;
   }
   .resume-top h2 {
-    font-size: 26px;
+    font-size: 22px;
   }
   .resume-top .hero-actions {
     width: 100%;
   }
-  .tools-strip {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .competency-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
-  .tool-tile {
-    padding: 10px 6px;
+  .competency-card {
+    padding: 10px 12px;
+  }
+  .competency-card h3 {
+    font-size: 13px;
+  }
+  .tools-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 6px;
+  }
+  .tool-tile {
+    padding: 9px 4px;
+    gap: 5px;
   }
   .tool-tile img,
   .tool-tile svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
   .tool-tile strong {
-    font-size: 11.5px;
+    font-size: 11px;
   }
-  .tool-tile span {
-    font-size: 10.5px;
-  }
-  .exp-card {
-    padding: 16px;
-  }
-  .contact-banner {
-    padding: 18px 16px;
-    border-radius: 18px;
+  .career-grid {
     gap: 14px;
   }
+  .exp-stack {
+    gap: 10px;
+  }
+  .exp-card {
+    padding: 13px 14px;
+  }
+  .exp-head {
+    margin-bottom: 8px;
+  }
+  .exp-head h3 {
+    font-size: 15.5px;
+  }
+  .exp-head span {
+    font-size: 12px;
+  }
+  .mobile-exp-toggle {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bronze);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--bronze-soft);
+  }
+  .exp-bullets {
+    display: none;
+  }
+  .exp-card.is-open .exp-bullets {
+    display: grid;
+    margin-top: 10px;
+  }
+  .aside-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .aside-card {
+    padding: 11px 12px;
+  }
+  .aside-card h4 {
+    font-size: 13px;
+    margin: 4px 0 0;
+  }
+  .contact-banner {
+    padding: 16px 14px;
+    border-radius: 16px;
+    gap: 12px;
+  }
   .contact-banner h3 {
-    font-size: 17px;
+    font-size: 16px;
   }
   .contact-actions {
     width: 100%;
@@ -2251,15 +2524,15 @@ dialog.lightbox::backdrop {
   }
   .contact-actions .btn {
     width: 100%;
-    padding: 11px 10px;
+    padding: 10px;
     font-size: 13px;
   }
   .contact-actions .btn:last-child {
     grid-column: 1 / -1;
   }
   .site-footer {
-    padding: 20px 0 92px;
-    font-size: 12.5px;
+    padding: 18px 0 88px;
+    font-size: 12px;
   }
 
   /* Mobile Lightbox */
