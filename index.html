@@ -7,8 +7,8 @@
   <meta name="description" content="屈国庆（Felix Qu）作品集：AI 短剧视觉体系与动态分镜、商业级分层出图 Image Skill 与多模型 Agent 工作流、微信小程序产品落地与商业视觉全案。">
   <meta name="theme-color" content="#090b10">
   <link rel="alternate" hreflang="en" href="en.html">
-  <link rel="stylesheet" href="styles-v5.css?v=6.1">
-  <script src="app-v5.js?v=6.1" defer></script>
+  <link rel="stylesheet" href="styles-v5.css?v=7.1">
+  <script src="app-v5.js?v=7.1" defer></script>
 </head>
 <body data-locale="zh">
   <a class="skip-link" href="#drama">跳至核心作品</a>
@@ -29,7 +29,7 @@
     <a class="lang-switch" href="en.html" lang="en">English <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main id="top">
+  <main id="top" class="desktop-main">
     <!-- DARK CINEMA ZONE -->
     <div class="zone-dark" data-zone="dark">
       <!-- HERO -->
@@ -210,13 +210,13 @@
               </button>
 
               <div class="grid-2">
-                <button class="media-btn" type="button" data-image="assets/drama/drama-char-turnaround.webp" data-caption="女主标准正/侧/背三视图与近景面部锚定卡" data-gallery="drama-cast">
-                  <img class="reveal-img" src="assets/drama/drama-char-turnaround.webp" width="1800" height="1012" alt="角色正侧背三视图设定卡" loading="lazy" decoding="async">
-                  <span class="zoom-badge">角色三视图 ↗</span>
+                <button class="media-btn" type="button" data-image="assets/drama/drama-palace-hall.webp" data-caption="核心主场景基准图 01：中式大殿天光纵深与红柱地砖反射光影基准" data-gallery="drama-cast">
+                  <img class="reveal-img" src="assets/drama/drama-palace-hall.webp" width="1024" height="573" alt="中式宏大宫殿大殿天光纵深概念图" loading="lazy" decoding="async">
+                  <span class="zoom-badge">大殿天光基准 ↗</span>
                 </button>
-                <button class="media-btn" type="button" data-image="assets/drama/drama-scene-hall.webp" data-caption="核心主场景基准图：中式厅堂对称透视与自然窗棂光影控制" data-gallery="drama-cast">
-                  <img class="reveal-img" src="assets/drama/drama-scene-hall.webp" width="1800" height="1012" alt="中式古风厅堂场景概念基准图" loading="lazy" decoding="async">
-                  <span class="zoom-badge">主场景光影底图 ↗</span>
+                <button class="media-btn" type="button" data-image="assets/drama/drama-misty-steps.webp" data-caption="核心外景基准图 02：山林石阶晨雾体积光与冷调氛围参考" data-gallery="drama-cast">
+                  <img class="reveal-img" src="assets/drama/drama-misty-steps.webp" width="1024" height="576" alt="山道石阶晨雾林间外景概念图" loading="lazy" decoding="async">
+                  <span class="zoom-badge">山道晨雾外景 ↗</span>
                 </button>
               </div>
             </article>
@@ -877,13 +877,327 @@
     </div>
   </main>
 
-  <nav class="mobile-dock" data-dock-theme="dark" aria-label="移动端章节导航">
-    <a href="#drama">短剧</a>
-    <a href="#pipeline">管线</a>
-    <a href="#apps">小程序</a>
-    <a href="#commercial">商业</a>
-    <a href="#resume">简历</a>
-  </nav>
+  <!-- BESPOKE MOBILE VISUAL-FIRST EXPERIENCE (<= 760px) -->
+  <section id="mobile-app" aria-label="移动端视觉作品集">
+    <header class="m-topbar">
+      <div class="m-profile">
+        <img src="assets/portrait.webp" width="731" height="900" alt="屈国庆头像" loading="eager" decoding="async">
+        <div>
+          <strong>屈国庆 <span>Felix Qu</span></strong>
+          <p>AIGC 视觉 · AI 短剧 · Agent 管线</p>
+        </div>
+      </div>
+      <div class="m-top-actions">
+        <a class="m-pill-btn is-gold" href="resume/felix-qu-resume-zh.pdf" download>简历 ↓</a>
+        <a class="m-pill-btn" href="en.html" lang="en">EN</a>
+      </div>
+    </header>
+
+    <nav class="m-tabs" aria-label="作品视觉分类">
+      <button class="m-tab is-active" type="button" data-m-tab="all">全部</button>
+      <button class="m-tab" type="button" data-m-tab="drama">AI 短剧</button>
+      <button class="m-tab" type="button" data-m-tab="pipeline">光影管线</button>
+      <button class="m-tab" type="button" data-m-tab="apps">小程序</button>
+      <button class="m-tab" type="button" data-m-tab="commercial">商业大片</button>
+      <button class="m-tab" type="button" data-m-tab="about">履历</button>
+    </nav>
+
+    <div class="m-feed">
+      <!-- Hero Compare Stage -->
+      <div class="m-block m-compare-wrap" data-m-cat="hero">
+        <div class="compare-frame m-compare" data-compare>
+          <img class="compare-img" src="assets/pipeline/compare-warm.webp" width="1600" height="900" alt="暖调光学景深成片" loading="eager" decoding="async">
+          <div class="compare-after-wrap">
+            <img class="compare-img" src="assets/pipeline/compare-cyber.webp" width="1600" height="900" alt="赛博霓虹风格迁移对比" loading="eager" decoding="async">
+          </div>
+          <span class="compare-label left">赛博迁移 · 锁主体</span>
+          <span class="compare-label right">暖调光学景深</span>
+          <div class="compare-divider" aria-hidden="true"></div>
+          <button class="compare-handle" type="button" role="slider" aria-label="拖动对比两种光影风格" aria-valuemin="6" aria-valuemax="94" aria-valuenow="52">↔</button>
+        </div>
+        <div class="m-compare-bar">
+          <span>↔ 左右拖动实时对比风格管线</span>
+          <strong data-compare-readout>52%</strong>
+        </div>
+      </div>
+
+      <!-- 01 AI Short Drama -->
+      <section class="m-block" data-m-cat="drama">
+        <div class="m-sec-bar">
+          <h2><span>01</span>AI 短剧视觉</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="01 · AI 短剧视觉体系与动态分镜"
+            data-sheet-role="独立视觉主创 · 多季剧集落地"
+            data-sheet-pills="ComfyUI|Midjourney|节点拓扑|剪映成片"
+            data-sheet-points="角色三视图与服化道提前入库，跨镜头长相服化不崩|百镜级节点流批量驱动分镜，支撑季播高频更新|拆解远/中/近/特景别节奏并输出动态成片">ⓘ 说明</button>
+        </div>
+
+        <div class="m-video-bleed">
+          <span class="m-badge-live">LIVE · 3 场次连剪</span>
+          <video muted loop playsinline controls preload="metadata" poster="assets/drama/drama-poster.webp" data-autoplay-visible aria-label="AI 短剧成片动态节选">
+            <source src="assets/drama/drama-reel.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/drama/shot-1.webp" data-caption="01 远景建制 · 太傅府正厅群像调度" data-gallery="m-drama">
+            <img src="assets/drama/shot-1.webp" width="1280" height="720" alt="短剧远景正厅镜头" loading="lazy" decoding="async">
+            <span class="m-chip">01 远景</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-2.webp" data-caption="02 双人中景 · 车厢内光影对戏" data-gallery="m-drama">
+            <img src="assets/drama/shot-2.webp" width="1280" height="720" alt="短剧双人中景镜头" loading="lazy" decoding="async">
+            <span class="m-chip">02 中景</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-3.webp" data-caption="03 情绪近景 · 户外自然光神态锚定" data-gallery="m-drama">
+            <img src="assets/drama/shot-3.webp" width="1280" height="720" alt="短剧女主近景镜头" loading="lazy" decoding="async">
+            <span class="m-chip">03 近景</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-4.webp" data-caption="04 动作特写 · 拉弓浅景深张力" data-gallery="m-drama">
+            <img src="assets/drama/shot-4.webp" width="1280" height="720" alt="短剧男主拉弓镜头" loading="lazy" decoding="async">
+            <span class="m-chip">04 特写</span>
+          </button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-six-cast.webp" data-caption="古装短剧全阵容设定矩阵 · 六大角色统一规范" data-gallery="m-drama">
+          <img src="assets/drama/drama-six-cast.webp" width="1920" height="1146" alt="六位主要角色设定矩阵" loading="lazy" decoding="async">
+          <span class="m-chip">六人主创设定 ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-palace-hall.webp" data-caption="核心主场景基准 01 · 中式大殿天光纵深与红柱光影" data-gallery="m-drama">
+          <img src="assets/drama/drama-palace-hall.webp" width="1024" height="573" alt="中式宏大宫殿大殿天光纵深" loading="lazy" decoding="async">
+          <span class="m-chip">大殿天光基准 ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-misty-steps.webp" data-caption="核心外景基准 02 · 山道石阶晨雾体积光" data-gallery="m-drama">
+          <img src="assets/drama/drama-misty-steps.webp" width="1024" height="576" alt="山道石阶晨雾林间外景" loading="lazy" decoding="async">
+          <span class="m-chip">山道晨雾外景 ↗</span>
+        </button>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/drama/node-assets-graph.webp" data-caption="资产拓扑节点图 · 人物 × 服化道 × 场景关联" data-gallery="m-drama">
+            <img src="assets/drama/node-assets-graph.webp" width="1920" height="1146" alt="角色道具场景节点关联图" loading="lazy" decoding="async">
+            <span class="m-chip">资产节点图 ↗</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/node-storyboard-graph.webp" data-caption="百镜级批量分镜节点管线 · 点击放大查看连线" data-gallery="m-drama">
+            <img src="assets/drama/node-storyboard-graph.webp" width="1920" height="1333" alt="百镜批量分镜管线图" loading="lazy" decoding="async">
+            <span class="m-chip">百镜节点流 ↗</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 02 SubjectLock Pipeline -->
+      <section class="m-block" data-m-cat="pipeline">
+        <div class="m-sec-bar">
+          <h2><span>02</span>SubjectLock 光影管线</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="02 · 商业级出图 Skill 与 Agent 编排"
+            data-sheet-role="独立研发 · ComfyUI 自定义节点"
+            data-sheet-pills="SubjectLockCanvas|GPT-Image-2|Claude Code|Codex|Coze"
+            data-sheet-points="SubjectLockCanvas 在张量层锁死商品原像素，车标与工业结构零形变|ConstrainedLightLayer 在蒙版外生成雨雪街景、湿润反光与接触阴影|多模型路由结构化摄影焦段与布光参数，直接交付可用商业大片">ⓘ 说明</button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/pipeline/ev-lock-rain-side.webp" data-caption="SubjectLock 实证 01 · 雨天校门口接送（雨棚反光与车身零形变）" data-gallery="m-pipeline">
+          <img src="assets/pipeline/ev-lock-rain-side.webp" width="1600" height="900" alt="暴雨校门口母女与白色三轮篷车" loading="lazy" decoding="async">
+          <span class="m-chip">雨夜接送 · 零形变锁主体 ↗</span>
+        </button>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/pipeline/ev-lock-winter.webp" data-caption="SubjectLock 实证 02 · 冬日城市街道主视觉" data-gallery="m-pipeline">
+            <img src="assets/pipeline/ev-lock-winter.webp" width="1600" height="900" alt="冬日街景电动车商业成片" loading="lazy" decoding="async">
+            <span class="m-chip">冬日街景 ↗</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/pipeline/ev-lock-rain-top.webp" data-caption="SubjectLock 实证 03 · 高机位雨景俯拍" data-gallery="m-pipeline">
+            <img src="assets/pipeline/ev-lock-rain-top.webp" width="1600" height="1143" alt="雨天俯拍母女乘车视觉" loading="lazy" decoding="async">
+            <span class="m-chip">雨景俯拍 ↗</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 03 Mini-Programs -->
+      <section class="m-block" data-m-cat="apps">
+        <div class="m-sec-bar">
+          <h2><span>03</span>大丰收 &amp; 析卷小程序</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="03 · 2 款 AI 微信小程序端到端落地"
+            data-sheet-role="产品视觉与独立开发 · 双赛获奖"
+            data-sheet-pills="微信小程序|适老化 UI|Coze Agent|Claude Code|Codex"
+            data-sheet-points="「大丰收」农机服务小程序：适老大字规范 + 方言语音下单 + 23 种 AIGC 农机渲染|「析卷」AI 试卷分析平台：拍照寻边摆正 + 异步任务轮询批改 + 错题图谱|荣获 Coze 外滩黑客松「优秀作品奖」与 WaytoAGI 大赛「优秀作品奖」">ⓘ 说明</button>
+        </div>
+
+        <div class="m-phone-strip" aria-label="大丰收小程序六屏画廊">
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="大丰收 · 01 适老首页（语音一键下单）" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="大丰收首页" loading="lazy" decoding="async">
+            <span class="m-chip">01 首页</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-02-machines.webp" data-caption="大丰收 · 02 农机图鉴（23 种 AIGC 机型）" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-02-machines.webp" width="390" height="844" alt="大丰收农机选择" loading="lazy" decoding="async">
+            <span class="m-chip">02 农机</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-03-nearby.webp" data-caption="大丰收 · 03 附近作业与单机排队" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-03-nearby.webp" width="390" height="844" alt="大丰收附近地图" loading="lazy" decoding="async">
+            <span class="m-chip">03 附近</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-06-ai-order.webp" data-caption="大丰收 · 04 AI 语音成单核对" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-06-ai-order.webp" width="390" height="844" alt="大丰收AI订单" loading="lazy" decoding="async">
+            <span class="m-chip">04 AI核对</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-04-work.webp" data-caption="大丰收 · 05 机手工作台" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-04-work.webp" width="390" height="844" alt="大丰收机手端" loading="lazy" decoding="async">
+            <span class="m-chip">05 机手</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-05-complete.webp" data-caption="大丰收 · 06 完工面积比对验收" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-05-complete.webp" width="390" height="844" alt="大丰收完工验收" loading="lazy" decoding="async">
+            <span class="m-chip">06 验收</span>
+          </button>
+        </div>
+
+        <div class="m-machine-row" aria-label="大丰收 AIGC 农机资产">
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-g1.webp" alt="旋耕机" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-z4.webp" alt="插秧机" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-p1.webp" alt="喷雾机" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-d1.webp" alt="无人机" loading="lazy"></div>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/apps/xijuan-hero.webp" data-caption="析卷 AI 试卷分析平台主视觉 · Coze 黑客松 & WaytoAGI 双赛获奖" data-gallery="m-xijuan">
+          <img src="assets/apps/xijuan-hero.webp" width="1600" height="1000" alt="析卷 AI 主视觉" loading="lazy" decoding="async">
+          <span class="m-chip is-gold">析卷 AI · 双赛获奖 ★</span>
+        </button>
+      </section>
+
+      <!-- 04 Commercial Archive -->
+      <section class="m-block" data-m-cat="commercial">
+        <div class="m-sec-bar">
+          <h2><span>04</span>商业视觉全案</h2>
+          <span class="m-sec-sub">课程 · 实拍 · 电商 · 网页</span>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/book-promotion.webp" data-caption="书籍与课程主视觉 · 《困境中的奇迹》" data-gallery="m-comm">
+          <img src="assets/book-promotion.webp" width="2400" height="1018" alt="《困境中的奇迹》课程宣传主视觉" loading="lazy" decoding="async">
+          <span class="m-chip">课程主视觉 ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/course-dragon.webp" data-caption="课程新春主题插画" data-gallery="m-comm">
+          <img src="assets/course-dragon.webp" width="1935" height="1080" alt="课程新春插画" loading="lazy" decoding="async">
+        </button>
+
+        <div class="m-grid-2 m-posters">
+          <button class="m-tile" type="button" data-image="assets/course-iceberg.webp" data-caption="课程概念海报 · 冰山隐喻" data-gallery="m-comm">
+            <img src="assets/course-iceberg.webp" width="936" height="1710" alt="冰山课程海报" loading="lazy" decoding="async">
+          </button>
+          <button class="m-tile" type="button" data-image="assets/course-growth.webp" data-caption="课程主题插画 · 成长序列" data-gallery="m-comm">
+            <img src="assets/course-growth.webp" width="1466" height="2200" alt="成长主题插画" loading="lazy" decoding="async">
+          </button>
+          <button class="m-tile" type="button" data-image="assets/course-summer.webp" data-caption="课程主题插画 · 夏日叙事" data-gallery="m-comm">
+            <img src="assets/course-summer.webp" width="1344" height="2016" alt="夏日主题插画" loading="lazy" decoding="async">
+          </button>
+          <button class="m-tile" type="button" data-image="assets/course-illustration.webp" data-caption="品牌角色插画与物料" data-gallery="m-comm">
+            <img src="assets/course-illustration.webp" width="1024" height="1536" alt="品牌角色插画" loading="lazy" decoding="async">
+          </button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/vehicle-complete.webp" data-caption="永久三轮车宣传主视觉 · 实拍精修" data-gallery="m-comm">
+          <img src="assets/vehicle-complete.webp" width="2048" height="1536" alt="电动车整车商业视觉" loading="lazy" decoding="async">
+          <span class="m-chip">电动车实拍精修 ↗</span>
+        </button>
+
+        <div class="m-swipe-strip m-ev-strip" aria-label="电动车长页滑动画廊">
+          <button class="m-tile" type="button" data-image="assets/ev-1.webp" data-caption="电动车详情 · 01 外观灯光" data-gallery="m-comm"><img src="assets/ev-1.webp" width="941" height="1672" alt="电动车详情 1" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-2.webp" data-caption="电动车详情 · 02 空间座椅" data-gallery="m-comm"><img src="assets/ev-2.webp" width="941" height="1672" alt="电动车详情 2" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-3.webp" data-caption="电动车详情 · 03 结构特写" data-gallery="m-comm"><img src="assets/ev-3.webp" width="941" height="1672" alt="电动车详情 3" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-4.webp" data-caption="电动车详情 · 04 性能配置" data-gallery="m-comm"><img src="assets/ev-4.webp" width="941" height="1672" alt="电动车详情 4" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-5.webp" data-caption="电动车详情 · 05 全系卖点" data-gallery="m-comm"><img src="assets/ev-5.webp" width="941" height="1672" alt="电动车详情 5" loading="lazy" decoding="async"></button>
+        </div>
+
+        <div class="m-swipe-strip m-chair-strip" aria-label="家居电商滑动画廊">
+          <button class="m-tile" type="button" data-image="assets/chair-6.webp" data-caption="电动功能沙发 · 270° 旋转主图" data-gallery="m-comm"><img src="assets/chair-6.webp" width="1254" height="1254" alt="功能沙发主图" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-1.webp" data-caption="功能沙发尺寸与展开形态" data-gallery="m-comm"><img src="assets/chair-1.webp" width="1254" height="1254" alt="沙发尺寸图" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-2.webp" data-caption="材质与金属底盘拆解" data-gallery="m-comm"><img src="assets/chair-2.webp" width="1254" height="1254" alt="沙发细节图" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-3.webp" data-caption="客厅使用场景 1" data-gallery="m-comm"><img src="assets/chair-3.webp" width="1672" height="941" alt="家居场景 1" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-4.webp" data-caption="客厅使用场景 2" data-gallery="m-comm"><img src="assets/chair-4.webp" width="1672" height="941" alt="家居场景 2" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-5.webp" data-caption="客厅使用场景 3" data-gallery="m-comm"><img src="assets/chair-5.webp" width="1672" height="941" alt="家居场景 3" loading="lazy" decoding="async"></button>
+        </div>
+
+        <div class="m-video-bleed">
+          <span class="m-badge-live">WEB MOTION · 网页动效</span>
+          <video muted loop playsinline controls preload="metadata" poster="assets/website-poster.jpg" data-autoplay-visible aria-label="品牌网页动态视觉">
+            <source src="assets/website-visuals.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <!-- Compact Footer CTA in "All" view -->
+      <div class="m-mini-footer" data-m-cat="hero">
+        <button class="btn btn-primary-dark" type="button" data-open-about>查看工具栈与履历 →</button>
+        <div class="m-mini-links">
+          <a href="mailto:qgq2076778402@gmail.com">qgq2076778402@gmail.com</a>
+          <button class="copy-email" type="button" data-success="已复制邮箱" data-fail="请手动复制">复制邮箱</button>
+        </div>
+        <span class="m-copy-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- 05 Executive Profile / About Tab -->
+      <section class="m-block m-about" data-m-cat="about" hidden>
+        <div class="m-about-card">
+          <div class="m-about-head">
+            <img src="assets/portrait.webp" width="731" height="900" alt="屈国庆头像" loading="lazy">
+            <div>
+              <h2>屈国庆 · Felix Qu</h2>
+              <p>4年+ 商业全案 · 3年+ AIGC · 短剧与 Agent 管线</p>
+            </div>
+          </div>
+
+          <div class="m-about-awards">
+            <span>★ WaytoAGI 优秀作品奖</span>
+            <span>◆ Coze 黑客松获奖</span>
+            <span>小红书单篇 10,000+</span>
+          </div>
+
+          <div class="m-about-tools">
+            <div><img src="assets/software/ps.svg" alt=""><span>PS</span></div>
+            <div><img src="assets/software/c4d.svg" alt=""><span>C4D</span></div>
+            <div><img src="assets/software/jianying.png" alt=""><span>剪映</span></div>
+            <div>
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#1b212e"/><path d="M9 24c4-6 7-11 9-13 2 2 5 7 9 13H9Z" stroke="#e5b869" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span>MJ</span>
+            </div>
+            <div>
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#1b212e"/><circle cx="11" cy="12" r="3" fill="#c8f25a"/><circle cx="25" cy="12" r="3" fill="#e5b869"/><circle cx="18" cy="24" r="3" fill="#7aa6ff"/></svg>
+              <span>ComfyUI</span>
+            </div>
+            <div><img src="assets/software/coze.png" alt=""><span>Coze</span></div>
+            <div><img src="assets/software/claude.png" alt=""><span>Claude</span></div>
+            <div><img src="assets/software/codex.svg" alt=""><span>Codex</span></div>
+          </div>
+
+          <div class="m-about-exp">
+            <div><strong>西安心理教育机构</strong><span>高级平面与视频新媒体设计师 · 2023.08—2026.09</span></div>
+            <div><strong>天津台铃三轮车</strong><span>商业平面设计师 · 2022.04—2023.06</span></div>
+            <div><strong>山西工程技术学院</strong><span>视觉传达设计 · 2021 毕业</span></div>
+          </div>
+
+          <div class="m-about-actions">
+            <a class="btn btn-primary-dark" href="resume/felix-qu-resume-zh.pdf" download>下载中文简历 ↓</a>
+            <a class="btn btn-ghost-dark" href="mailto:qgq2076778402@gmail.com">发送邮件 ↗</a>
+            <button class="btn btn-ghost-dark copy-email" type="button" data-success="已复制邮箱" data-fail="请手动复制">复制邮箱</button>
+            <a class="btn btn-ghost-dark" href="https://www.linkedin.com/in/felix-qu-0a764843b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+          <span class="m-copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <dialog class="m-sheet" aria-label="项目说明抽屉">
+    <div class="m-sheet-head">
+      <div>
+        <strong class="m-sheet-title"></strong>
+        <p class="m-sheet-role"></p>
+      </div>
+      <button type="button" class="m-sheet-close" aria-label="关闭说明">✕</button>
+    </div>
+    <div class="m-sheet-pills"></div>
+    <ul class="m-sheet-points"></ul>
+  </dialog>
 
   <dialog class="lightbox" aria-label="高清大图与节点拓扑检查器">
     <div class="lightbox-toolbar">

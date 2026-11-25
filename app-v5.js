@@ -121,7 +121,7 @@
   function initCompare() {
     document.querySelectorAll('[data-compare]').forEach((frame) => {
       const handle = frame.querySelector('.compare-handle');
-      const readout = document.querySelector('#compare-percent');
+      const readout = frame.closest('.hero-stage, .m-compare-wrap')?.querySelector('[data-compare-readout], #compare-percent');
       let dragging = false;
 
       const setPos = (pct) => {
@@ -448,51 +448,100 @@
     });
   }
 
-  // 12. Copy Email with Live Status Feedback
+  // 12. Copy Email with Live Status Feedback (Desktop + Mobile)
   function initCopyEmail() {
-    const btn = document.querySelector('.copy-email');
-    const status = document.querySelector('#copy-status');
-    if (!btn || !status) return;
-
-    btn.addEventListener('click', async () => {
-      const email = 'qgq2076778402@gmail.com';
-      try {
-        await navigator.clipboard.writeText(email);
-        status.textContent = btn.dataset.success || 'Copied';
-      } catch (_) {
-        status.textContent = btn.dataset.fail || email;
-      }
-      window.setTimeout(() => {
-        status.textContent = '';
-      }, 3200);
+    document.querySelectorAll('.copy-email').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const scope = btn.closest('.contact-banner, .m-mini-footer, .m-about-card') || document;
+        const status = scope.querySelector('.m-copy-status, #copy-status');
+        const email = 'qgq2076778402@gmail.com';
+        try {
+          await navigator.clipboard.writeText(email);
+          if (status) status.textContent = btn.dataset.success || 'Copied';
+        } catch (_) {
+          if (status) status.textContent = btn.dataset.fail || email;
+        }
+        if (status) {
+          window.setTimeout(() => {
+            status.textContent = '';
+          }, 3200);
+        }
+      });
     });
   }
 
-  // 13. Mobile Collapsible Chapter Drawers & Experience Details
-  function initMobileDrawers() {
-    document.querySelectorAll('[data-drawer-toggle]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const sticky = btn.closest('.chapter-sticky');
-        const drawer = sticky?.querySelector('.chapter-detail-drawer');
-        if (!drawer) return;
-        const open = drawer.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(open));
-        const icon = btn.querySelector('span');
-        if (icon) icon.textContent = open ? '－' : '＋';
+  // 13. Mobile Visual App Tabs & Bottom Sheet Info
+  function initMobileApp() {
+    const app = document.querySelector('#mobile-app');
+    if (!app) return;
+
+    const tabs = Array.from(app.querySelectorAll('[data-m-tab]'));
+    const blocks = Array.from(app.querySelectorAll('[data-m-cat]'));
+
+    function selectTab(key, scrollTop = false) {
+      tabs.forEach((t) => {
+        const active = t.dataset.mTab === key;
+        t.classList.toggle('is-active', active);
+        if (active) scrollPillIntoBar(t);
       });
+      blocks.forEach((b) => {
+        const cat = b.dataset.mCat;
+        const show = key === 'all' ? cat !== 'about' : cat === key;
+        b.hidden = !show;
+      });
+      if (scrollTop) {
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      }
+    }
+
+    tabs.forEach((t) => {
+      t.addEventListener('click', () => selectTab(t.dataset.mTab, true));
     });
 
-    document.querySelectorAll('[data-exp-toggle]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const card = btn.closest('.exp-card');
-        if (!card) return;
-        const open = card.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(open));
-        btn.textContent = open
-          ? (btn.dataset.closeText || '收起 －')
-          : (btn.dataset.openText || '展开 ＋');
-      });
+    app.querySelectorAll('[data-open-about]').forEach((btn) => {
+      btn.addEventListener('click', () => selectTab('about', true));
     });
+
+    // Bottom sheet info dialog
+    const sheet = document.querySelector('dialog.m-sheet');
+    if (sheet) {
+      const titleEl = sheet.querySelector('.m-sheet-title');
+      const roleEl = sheet.querySelector('.m-sheet-role');
+      const pillsEl = sheet.querySelector('.m-sheet-pills');
+      const pointsEl = sheet.querySelector('.m-sheet-points');
+      const closeBtn = sheet.querySelector('.m-sheet-close');
+
+      app.querySelectorAll('[data-m-info]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          titleEl.textContent = btn.dataset.sheetTitle || '';
+          roleEl.textContent = btn.dataset.sheetRole || '';
+          pillsEl.innerHTML = (btn.dataset.sheetPills || '')
+            .split('|')
+            .filter(Boolean)
+            .map((p) => `<span>${p}</span>`)
+            .join('');
+          pointsEl.innerHTML = (btn.dataset.sheetPoints || '')
+            .split('|')
+            .filter(Boolean)
+            .map((pt) => `<li>${pt}</li>`)
+            .join('');
+          if (typeof sheet.showModal === 'function') {
+            sheet.showModal();
+          } else {
+            sheet.setAttribute('open', '');
+          }
+        });
+      });
+
+      const closeSheet = () => {
+        if (typeof sheet.close === 'function') sheet.close();
+        else sheet.removeAttribute('open');
+      };
+      closeBtn?.addEventListener('click', closeSheet);
+      sheet.addEventListener('click', (e) => {
+        if (e.target === sheet) closeSheet();
+      });
+    }
   }
 
   initImages();
@@ -507,5 +556,5 @@
   initViewportVideos();
   initLightbox();
   initCopyEmail();
-  initMobileDrawers();
+  initMobileApp();
 })();

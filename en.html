@@ -7,8 +7,8 @@
   <meta name="description" content="Portfolio of Felix Qu: AI short-drama visual systems &amp; dynamic storyboards, commercial layered Image Skills &amp; multi-model Agent workflows, WeChat mini-programs, and commercial visual design.">
   <meta name="theme-color" content="#090b10">
   <link rel="alternate" hreflang="zh-CN" href="index.html">
-  <link rel="stylesheet" href="styles-v5.css?v=6.1">
-  <script src="app-v5.js?v=6.1" defer></script>
+  <link rel="stylesheet" href="styles-v5.css?v=7.1">
+  <script src="app-v5.js?v=7.1" defer></script>
 </head>
 <body data-locale="en">
   <a class="skip-link" href="#drama">Skip to featured work</a>
@@ -29,7 +29,7 @@
     <a class="lang-switch" href="index.html" lang="zh-CN">中文 <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main id="top">
+  <main id="top" class="desktop-main">
     <!-- DARK CINEMA ZONE -->
     <div class="zone-dark" data-zone="dark">
       <!-- HERO -->
@@ -208,13 +208,13 @@
               </button>
 
               <div class="grid-2">
-                <button class="media-btn" type="button" data-image="assets/drama/drama-char-turnaround.webp" data-caption="Heroine 3-view turnaround &amp; facial close-up anchor sheet" data-gallery="drama-cast">
-                  <img class="reveal-img" src="assets/drama/drama-char-turnaround.webp" width="1800" height="1012" alt="Character front side back turnaround" loading="lazy" decoding="async">
-                  <span class="zoom-badge">3-View Turnaround ↗</span>
+                <button class="media-btn" type="button" data-image="assets/drama/drama-palace-hall.webp" data-caption="Core Interior Set 01: Imperial hall volumetric skylights and polished timber reflections" data-gallery="drama-cast">
+                  <img class="reveal-img" src="assets/drama/drama-palace-hall.webp" width="1024" height="573" alt="Imperial palace hall with volumetric skylight" loading="lazy" decoding="async">
+                  <span class="zoom-badge">Imperial Hall Light ↗</span>
                 </button>
-                <button class="media-btn" type="button" data-image="assets/drama/drama-scene-hall.webp" data-caption="Core Interior Set: Traditional wooden hall with controlled window lattice sunlight" data-gallery="drama-cast">
-                  <img class="reveal-img" src="assets/drama/drama-scene-hall.webp" width="1800" height="1012" alt="Chinese traditional hall concept set" loading="lazy" decoding="async">
-                  <span class="zoom-badge">Set Lighting Base ↗</span>
+                <button class="media-btn" type="button" data-image="assets/drama/drama-misty-steps.webp" data-caption="Core Exterior Set 02: Misty forest stone steps with atmospheric rim sunlight" data-gallery="drama-cast">
+                  <img class="reveal-img" src="assets/drama/drama-misty-steps.webp" width="1024" height="576" alt="Misty mountain stone steps exterior" loading="lazy" decoding="async">
+                  <span class="zoom-badge">Misty Forest Path ↗</span>
                 </button>
               </div>
             </article>
@@ -868,13 +868,319 @@
     </div>
   </main>
 
-  <nav class="mobile-dock" data-dock-theme="dark" aria-label="Mobile section navigation">
-    <a href="#drama">Drama</a>
-    <a href="#pipeline">Pipeline</a>
-    <a href="#apps">Apps</a>
-    <a href="#commercial">Work</a>
-    <a href="#resume">Resume</a>
-  </nav>
+  <!-- BESPOKE MOBILE VISUAL-FIRST EXPERIENCE (<= 760px) -->
+  <section id="mobile-app" aria-label="Mobile Visual Portfolio">
+    <header class="m-topbar">
+      <div class="m-profile">
+        <img src="assets/portrait.webp" width="731" height="900" alt="Portrait of Felix Qu" loading="eager" decoding="async">
+        <div>
+          <strong>Felix Qu <span>屈国庆</span></strong>
+          <p>AIGC Visuals · AI Drama · Agent</p>
+        </div>
+      </div>
+      <div class="m-top-actions">
+        <a class="m-pill-btn is-gold" href="resume/felix-qu-resume-en.pdf" download>CV ↓</a>
+        <a class="m-pill-btn" href="index.html" lang="zh-CN">中文</a>
+      </div>
+    </header>
+
+    <nav class="m-tabs" aria-label="Visual categories">
+      <button class="m-tab is-active" type="button" data-m-tab="all">All</button>
+      <button class="m-tab" type="button" data-m-tab="drama">AI Drama</button>
+      <button class="m-tab" type="button" data-m-tab="pipeline">Pipeline</button>
+      <button class="m-tab" type="button" data-m-tab="apps">Apps</button>
+      <button class="m-tab" type="button" data-m-tab="commercial">Commercial</button>
+      <button class="m-tab" type="button" data-m-tab="about">Profile</button>
+    </nav>
+
+    <div class="m-feed">
+      <!-- Hero Compare Stage -->
+      <div class="m-block m-compare-wrap" data-m-cat="hero">
+        <div class="compare-frame m-compare" data-compare>
+          <img class="compare-img" src="assets/pipeline/compare-warm.webp" width="1600" height="900" alt="Warm optical depth render" loading="eager" decoding="async">
+          <div class="compare-after-wrap">
+            <img class="compare-img" src="assets/pipeline/compare-cyber.webp" width="1600" height="900" alt="Cyber neon style transfer" loading="eager" decoding="async">
+          </div>
+          <span class="compare-label left">Cyber Transfer · Locked</span>
+          <span class="compare-label right">Warm Optical Depth</span>
+          <div class="compare-divider" aria-hidden="true"></div>
+          <button class="compare-handle" type="button" role="slider" aria-label="Drag to compare lighting styles" aria-valuemin="6" aria-valuemax="94" aria-valuenow="52">↔</button>
+        </div>
+        <div class="m-compare-bar">
+          <span>↔ Drag to compare lighting pipelines</span>
+          <strong data-compare-readout>52%</strong>
+        </div>
+      </div>
+
+      <!-- 01 AI Short Drama -->
+      <section class="m-block" data-m-cat="drama">
+        <div class="m-sec-bar">
+          <h2><span>01</span>AI Short Drama</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="01 · AI Short-Drama Visual Systems"
+            data-sheet-role="Independent Visual Lead · Multi-Season"
+            data-sheet-pills="ComfyUI|Midjourney|Node Graph|Jianying"
+            data-sheet-points="Standardized cast &amp; prop sheets lock identity across episodes|100+ shot batch node pipelines drive consistent multi-scene rendering|Shot-scale pacing translated directly into dynamic highlight reels">ⓘ Info</button>
+        </div>
+
+        <div class="m-video-bleed">
+          <span class="m-badge-live">LIVE · 3-SCENE CUT</span>
+          <video muted loop playsinline controls preload="metadata" poster="assets/drama/drama-poster.webp" data-autoplay-visible aria-label="AI short drama reel">
+            <source src="assets/drama/drama-reel.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/drama/shot-1.webp" data-caption="01 Wide Establishing · Grand Hall Blocking" data-gallery="m-drama">
+            <img src="assets/drama/shot-1.webp" width="1280" height="720" alt="Wide establishing shot" loading="lazy" decoding="async">
+            <span class="m-chip">01 Wide</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-2.webp" data-caption="02 Two-Shot Medium · Carriage Dialogue" data-gallery="m-drama">
+            <img src="assets/drama/shot-2.webp" width="1280" height="720" alt="Two-shot dialogue frame" loading="lazy" decoding="async">
+            <span class="m-chip">02 Medium</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-3.webp" data-caption="03 Close-Up · Daylight Expression Lock" data-gallery="m-drama">
+            <img src="assets/drama/shot-3.webp" width="1280" height="720" alt="Outdoor close-up" loading="lazy" decoding="async">
+            <span class="m-chip">03 Close</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/shot-4.webp" data-caption="04 Action Frame · Shallow DOF Archer" data-gallery="m-drama">
+            <img src="assets/drama/shot-4.webp" width="1280" height="720" alt="Archer action close-up" loading="lazy" decoding="async">
+            <span class="m-chip">04 Action</span>
+          </button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-six-cast.webp" data-caption="Full Cast Visual Matrix · 6 Unified Characters" data-gallery="m-drama">
+          <img src="assets/drama/drama-six-cast.webp" width="1920" height="1146" alt="Six-character period drama cast sheet" loading="lazy" decoding="async">
+          <span class="m-chip">6-Cast Matrix ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-palace-hall.webp" data-caption="Core Interior Set 01 · Imperial Hall Volumetric Light" data-gallery="m-drama">
+          <img src="assets/drama/drama-palace-hall.webp" width="1024" height="573" alt="Imperial palace hall skylight" loading="lazy" decoding="async">
+          <span class="m-chip">Imperial Hall ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/drama/drama-misty-steps.webp" data-caption="Core Exterior Set 02 · Misty Mountain Stone Path" data-gallery="m-drama">
+          <img src="assets/drama/drama-misty-steps.webp" width="1024" height="576" alt="Misty mountain stone steps" loading="lazy" decoding="async">
+          <span class="m-chip">Misty Path ↗</span>
+        </button>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/drama/node-assets-graph.webp" data-caption="Assets Topology Graph · Cast × Props × Sets" data-gallery="m-drama">
+            <img src="assets/drama/node-assets-graph.webp" width="1920" height="1146" alt="Assets node graph" loading="lazy" decoding="async">
+            <span class="m-chip">Assets Graph ↗</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/drama/node-storyboard-graph.webp" data-caption="100+ Shot Batch Pipeline · Tap Zoom to Inspect" data-gallery="m-drama">
+            <img src="assets/drama/node-storyboard-graph.webp" width="1920" height="1333" alt="Batch storyboard graph" loading="lazy" decoding="async">
+            <span class="m-chip">Batch Graph ↗</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 02 SubjectLock Pipeline -->
+      <section class="m-block" data-m-cat="pipeline">
+        <div class="m-sec-bar">
+          <h2><span>02</span>SubjectLock Pipeline</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="02 · Commercial Image Skill &amp; Agent Routing"
+            data-sheet-role="Independent Developer · ComfyUI Nodes"
+            data-sheet-pills="SubjectLockCanvas|GPT-Image-2|Claude Code|Codex|Coze"
+            data-sheet-points="SubjectLockCanvas locks product pixels in tensor space with zero logo warp|ConstrainedLightLayer generates wet reflections &amp; contact shadows outside masks|Multi-model LLM routing structures optical lens &amp; lighting specs">ⓘ Info</button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/pipeline/ev-lock-rain-side.webp" data-caption="SubjectLock 01 · Rainy School Pickup (Zero Chassis Warp)" data-gallery="m-pipeline">
+          <img src="assets/pipeline/ev-lock-rain-side.webp" width="1600" height="900" alt="Rainy EV school pickup render" loading="lazy" decoding="async">
+          <span class="m-chip">Rainy Pickup · Locked ↗</span>
+        </button>
+
+        <div class="m-grid-2">
+          <button class="m-tile" type="button" data-image="assets/pipeline/ev-lock-winter.webp" data-caption="SubjectLock 02 · Winter Street Campaign" data-gallery="m-pipeline">
+            <img src="assets/pipeline/ev-lock-winter.webp" width="1600" height="900" alt="Winter EV street render" loading="lazy" decoding="async">
+            <span class="m-chip">Winter Street ↗</span>
+          </button>
+          <button class="m-tile" type="button" data-image="assets/pipeline/ev-lock-rain-top.webp" data-caption="SubjectLock 03 · High-Angle Rain View" data-gallery="m-pipeline">
+            <img src="assets/pipeline/ev-lock-rain-top.webp" width="1600" height="1143" alt="High angle rainy EV render" loading="lazy" decoding="async">
+            <span class="m-chip">Overhead Rain ↗</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 03 Mini-Programs -->
+      <section class="m-block" data-m-cat="apps">
+        <div class="m-sec-bar">
+          <h2><span>03</span>Shipped Mini-Programs</h2>
+          <button class="m-info-btn" type="button" data-m-info
+            data-sheet-title="03 · 2 Shipped AI WeChat Mini-Programs"
+            data-sheet-role="Product Visuals &amp; Full-Stack Build"
+            data-sheet-pills="WeChat App|Senior UI|Coze Agent|Claude Code|Codex"
+            data-sheet-points="Dafengshou Agri-Machinery: Accessible senior UI + voice booking + 23 AIGC models|Xijuan AI Exam Review: Perspective doc scan + async multi-model grading|Awarded at both Coze Waitan Hackathon &amp; WaytoAGI Competition">ⓘ Info</button>
+        </div>
+
+        <div class="m-phone-strip" aria-label="Dafengshou Mini-Program screens">
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="Dafengshou · 01 Accessible Home" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="Home screen" loading="lazy" decoding="async">
+            <span class="m-chip">01 Home</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-02-machines.webp" data-caption="Dafengshou · 02 Machinery Picker" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-02-machines.webp" width="390" height="844" alt="Machinery screen" loading="lazy" decoding="async">
+            <span class="m-chip">02 Fleet</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-03-nearby.webp" data-caption="Dafengshou · 03 Nearby Queue" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-03-nearby.webp" width="390" height="844" alt="Nearby map" loading="lazy" decoding="async">
+            <span class="m-chip">03 Nearby</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-06-ai-order.webp" data-caption="Dafengshou · 04 AI Order Check" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-06-ai-order.webp" width="390" height="844" alt="AI Order screen" loading="lazy" decoding="async">
+            <span class="m-chip">04 AI Check</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-04-work.webp" data-caption="Dafengshou · 05 Operator Desk" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-04-work.webp" width="390" height="844" alt="Operator desk" loading="lazy" decoding="async">
+            <span class="m-chip">05 Operator</span>
+          </button>
+          <button class="m-phone-card" type="button" data-image="assets/apps/dfs-05-complete.webp" data-caption="Dafengshou · 06 Completion Sign-Off" data-gallery="m-dfs">
+            <img src="assets/apps/dfs-05-complete.webp" width="390" height="844" alt="Completion screen" loading="lazy" decoding="async">
+            <span class="m-chip">06 Sign-Off</span>
+          </button>
+        </div>
+
+        <div class="m-machine-row" aria-label="Dafengshou AIGC Machine Assets">
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-g1.webp" alt="Rotary Tiller" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-z4.webp" alt="Transplanter" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-p1.webp" alt="Boom Sprayer" loading="lazy"></div>
+          <div class="m-machine-box"><img src="assets/apps/dfs-machine-d1.webp" alt="Agri Drone" loading="lazy"></div>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/apps/xijuan-hero.webp" data-caption="Xijuan AI Exam Analysis · Dual Hackathon &amp; AIGC Award Winner" data-gallery="m-xijuan">
+          <img src="assets/apps/xijuan-hero.webp" width="1600" height="1000" alt="Xijuan AI hero visual" loading="lazy" decoding="async">
+          <span class="m-chip is-gold">Xijuan AI · Dual Winner ★</span>
+        </button>
+      </section>
+
+      <!-- 04 Commercial Archive -->
+      <section class="m-block" data-m-cat="commercial">
+        <div class="m-sec-bar">
+          <h2><span>04</span>Commercial Archive</h2>
+          <span class="m-sec-sub">Courses · EV · Home · Web</span>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/book-promotion.webp" data-caption="Book &amp; Course Key Visual Campaign" data-gallery="m-comm">
+          <img src="assets/book-promotion.webp" width="2400" height="1018" alt="Book campaign key visual" loading="lazy" decoding="async">
+          <span class="m-chip">Course Key Visual ↗</span>
+        </button>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/course-dragon.webp" data-caption="Course Lunar New Year Edition" data-gallery="m-comm">
+          <img src="assets/course-dragon.webp" width="1935" height="1080" alt="Course Lunar New Year art" loading="lazy" decoding="async">
+        </button>
+
+        <div class="m-grid-2 m-posters">
+          <button class="m-tile" type="button" data-image="assets/course-iceberg.webp" data-caption="Course Concept · Iceberg" data-gallery="m-comm"><img src="assets/course-iceberg.webp" width="936" height="1710" alt="Iceberg poster" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/course-growth.webp" data-caption="Course Illustration · Growth" data-gallery="m-comm"><img src="assets/course-growth.webp" width="1466" height="2200" alt="Growth art" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/course-summer.webp" data-caption="Course Illustration · Summer" data-gallery="m-comm"><img src="assets/course-summer.webp" width="1344" height="2016" alt="Summer art" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/course-illustration.webp" data-caption="Brand Character Art" data-gallery="m-comm"><img src="assets/course-illustration.webp" width="1024" height="1536" alt="Character art" loading="lazy" decoding="async"></button>
+        </div>
+
+        <button class="m-tile m-bleed" type="button" data-image="assets/vehicle-complete.webp" data-caption="Electric Tricycle Studio Campaign" data-gallery="m-comm">
+          <img src="assets/vehicle-complete.webp" width="2048" height="1536" alt="EV studio campaign" loading="lazy" decoding="async">
+          <span class="m-chip">EV Studio Shoot ↗</span>
+        </button>
+
+        <div class="m-swipe-strip m-ev-strip" aria-label="EV detail gallery">
+          <button class="m-tile" type="button" data-image="assets/ev-1.webp" data-caption="EV Feature 01" data-gallery="m-comm"><img src="assets/ev-1.webp" width="941" height="1672" alt="EV 1" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-2.webp" data-caption="EV Feature 02" data-gallery="m-comm"><img src="assets/ev-2.webp" width="941" height="1672" alt="EV 2" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-3.webp" data-caption="EV Feature 03" data-gallery="m-comm"><img src="assets/ev-3.webp" width="941" height="1672" alt="EV 3" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-4.webp" data-caption="EV Feature 04" data-gallery="m-comm"><img src="assets/ev-4.webp" width="941" height="1672" alt="EV 4" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/ev-5.webp" data-caption="EV Feature 05" data-gallery="m-comm"><img src="assets/ev-5.webp" width="941" height="1672" alt="EV 5" loading="lazy" decoding="async"></button>
+        </div>
+
+        <div class="m-swipe-strip m-chair-strip" aria-label="Furniture gallery">
+          <button class="m-tile" type="button" data-image="assets/chair-6.webp" data-caption="270° Swivel Recliner" data-gallery="m-comm"><img src="assets/chair-6.webp" width="1254" height="1254" alt="Recliner hero" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-1.webp" data-caption="Product Dimensions" data-gallery="m-comm"><img src="assets/chair-1.webp" width="1254" height="1254" alt="Dimensions" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-2.webp" data-caption="Hardware Breakdown" data-gallery="m-comm"><img src="assets/chair-2.webp" width="1254" height="1254" alt="Hardware" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-3.webp" data-caption="Living Room 1" data-gallery="m-comm"><img src="assets/chair-3.webp" width="1672" height="941" alt="Living room 1" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-4.webp" data-caption="Living Room 2" data-gallery="m-comm"><img src="assets/chair-4.webp" width="1672" height="941" alt="Living room 2" loading="lazy" decoding="async"></button>
+          <button class="m-tile" type="button" data-image="assets/chair-5.webp" data-caption="Living Room 3" data-gallery="m-comm"><img src="assets/chair-5.webp" width="1672" height="941" alt="Living room 3" loading="lazy" decoding="async"></button>
+        </div>
+
+        <div class="m-video-bleed">
+          <span class="m-badge-live">WEB MOTION</span>
+          <video muted loop playsinline controls preload="metadata" poster="assets/website-poster.jpg" data-autoplay-visible aria-label="Website visuals video">
+            <source src="assets/website-visuals.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <!-- Compact Footer CTA in "All" view -->
+      <div class="m-mini-footer" data-m-cat="hero">
+        <button class="btn btn-primary-dark" type="button" data-open-about>View Stack &amp; Profile →</button>
+        <div class="m-mini-links">
+          <a href="mailto:qgq2076778402@gmail.com">qgq2076778402@gmail.com</a>
+          <button class="copy-email" type="button" data-success="Copied" data-fail="Copy manually">Copy Email</button>
+        </div>
+        <span class="m-copy-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- 05 Profile / About Tab -->
+      <section class="m-block m-about" data-m-cat="about" hidden>
+        <div class="m-about-card">
+          <div class="m-about-head">
+            <img src="assets/portrait.webp" width="731" height="900" alt="Portrait of Felix Qu" loading="lazy">
+            <div>
+              <h2>Felix Qu · 屈国庆</h2>
+              <p>4+ yrs Commercial · 3+ yrs AIGC · Drama &amp; Agent</p>
+            </div>
+          </div>
+
+          <div class="m-about-awards">
+            <span>★ WaytoAGI Winner</span>
+            <span>◆ Coze Hackathon</span>
+            <span>10,000+ XHS Views</span>
+          </div>
+
+          <div class="m-about-tools">
+            <div><img src="assets/software/ps.svg" alt=""><span>PS</span></div>
+            <div><img src="assets/software/c4d.svg" alt=""><span>C4D</span></div>
+            <div><img src="assets/software/jianying.png" alt=""><span>Jianying</span></div>
+            <div>
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#1b212e"/><path d="M9 24c4-6 7-11 9-13 2 2 5 7 9 13H9Z" stroke="#e5b869" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span>MJ</span>
+            </div>
+            <div>
+              <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#1b212e"/><circle cx="11" cy="12" r="3" fill="#c8f25a"/><circle cx="25" cy="12" r="3" fill="#e5b869"/><circle cx="18" cy="24" r="3" fill="#7aa6ff"/></svg>
+              <span>ComfyUI</span>
+            </div>
+            <div><img src="assets/software/coze.png" alt=""><span>Coze</span></div>
+            <div><img src="assets/software/claude.png" alt=""><span>Claude</span></div>
+            <div><img src="assets/software/codex.svg" alt=""><span>Codex</span></div>
+          </div>
+
+          <div class="m-about-exp">
+            <div><strong>Xi’an Psychology Education</strong><span>Senior Graphic &amp; Video Designer · 2023.08—2026.09</span></div>
+            <div><strong>Tianjin Tailing Tricycle</strong><span>Commercial Graphic Designer · 2022.04—2023.06</span></div>
+            <div><strong>Shanxi Institute of Technology</strong><span>Visual Communication · 2021</span></div>
+          </div>
+
+          <div class="m-about-actions">
+            <a class="btn btn-primary-dark" href="resume/felix-qu-resume-en.pdf" download>Download CV ↓</a>
+            <a class="btn btn-ghost-dark" href="mailto:qgq2076778402@gmail.com">Send Email ↗</a>
+            <button class="btn btn-ghost-dark copy-email" type="button" data-success="Copied" data-fail="Copy manually">Copy Email</button>
+            <a class="btn btn-ghost-dark" href="https://www.linkedin.com/in/felix-qu-0a764843b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+          <span class="m-copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <dialog class="m-sheet" aria-label="Project details">
+    <div class="m-sheet-head">
+      <div>
+        <strong class="m-sheet-title"></strong>
+        <p class="m-sheet-role"></p>
+      </div>
+      <button type="button" class="m-sheet-close" aria-label="Close">✕</button>
+    </div>
+    <div class="m-sheet-pills"></div>
+    <ul class="m-sheet-points"></ul>
+  </dialog>
 
   <dialog class="lightbox" aria-label="High-resolution viewer">
     <div class="lightbox-toolbar">
