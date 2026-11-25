@@ -7,8 +7,8 @@
   <meta name="description" content="Portfolio of Felix Qu: AI short-drama visual systems &amp; dynamic storyboards, commercial layered Image Skills &amp; multi-model Agent workflows, WeChat mini-programs, and commercial visual design.">
   <meta name="theme-color" content="#090b10">
   <link rel="alternate" hreflang="zh-CN" href="index.html">
-  <link rel="stylesheet" href="styles-v5.css">
-  <script src="app-v5.js" defer></script>
+  <link rel="stylesheet" href="styles-v5.css?v=5.3">
+  <script src="app-v5.js?v=5.3" defer></script>
 </head>
 <body data-locale="en">
   <a class="skip-link" href="#drama">Skip to featured work</a>
@@ -447,7 +447,7 @@
               </div>
 
               <div class="phone-trio">
-                <div class="phone-shell">
+                <div class="phone-shell phone-shell-side">
                   <button class="phone-screen-btn" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="Dafengshou · Accessible Home Screen" data-gallery="dfs-screens">
                     <img class="reveal-img" src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="Dafengshou home screen" loading="lazy" decoding="async">
                   </button>
@@ -458,10 +458,14 @@
                   <button id="dfs-center-btn" class="phone-screen-btn" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="Dafengshou · Accessible Home (Large typography + one-tap voice booking + live queue card)" data-gallery="dfs-screens">
                     <img id="dfs-center-img" class="reveal-img" src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="Dafengshou featured screen preview" loading="lazy" decoding="async">
                   </button>
-                  <div class="phone-label"><strong id="dfs-center-title">01 Home</strong><span id="dfs-center-sub">18px Body · Voice Booking</span></div>
+                  <div class="phone-label">
+                    <button class="phone-step-btn" type="button" data-phone-step="-1" aria-label="Previous screen">‹</button>
+                    <div class="phone-label-meta"><strong id="dfs-center-title">01 Home</strong><span id="dfs-center-sub">18px Body · Voice Booking</span></div>
+                    <button class="phone-step-btn" type="button" data-phone-step="1" aria-label="Next screen">›</button>
+                  </div>
                 </div>
 
-                <div class="phone-shell">
+                <div class="phone-shell phone-shell-side">
                   <button class="phone-screen-btn" type="button" data-image="assets/apps/dfs-06-ai-order.webp" data-caption="Dafengshou · AI Structured Order Summary" data-gallery="dfs-screens">
                     <img class="reveal-img" src="assets/apps/dfs-06-ai-order.webp" width="390" height="844" alt="Dafengshou AI order summary screen" loading="lazy" decoding="async">
                   </button>
@@ -825,6 +829,14 @@
       </section>
     </div>
   </main>
+
+  <nav class="mobile-dock" data-dock-theme="dark" aria-label="Mobile section navigation">
+    <a href="#drama">Drama</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#apps">Apps</a>
+    <a href="#commercial">Work</a>
+    <a href="#resume">Resume</a>
+  </nav>
 
   <dialog class="lightbox" aria-label="High-resolution viewer">
     <div class="lightbox-toolbar">

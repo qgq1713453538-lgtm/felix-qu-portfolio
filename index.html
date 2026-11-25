@@ -7,8 +7,8 @@
   <meta name="description" content="屈国庆（Felix Qu）作品集：AI 短剧视觉体系与动态分镜、商业级分层出图 Image Skill 与多模型 Agent 工作流、微信小程序产品落地与商业视觉全案。">
   <meta name="theme-color" content="#090b10">
   <link rel="alternate" hreflang="en" href="en.html">
-  <link rel="stylesheet" href="styles-v5.css">
-  <script src="app-v5.js" defer></script>
+  <link rel="stylesheet" href="styles-v5.css?v=5.3">
+  <script src="app-v5.js?v=5.3" defer></script>
 </head>
 <body data-locale="zh">
   <a class="skip-link" href="#drama">跳至核心作品</a>
@@ -452,7 +452,7 @@
               </div>
 
               <div class="phone-trio">
-                <div class="phone-shell">
+                <div class="phone-shell phone-shell-side">
                   <button class="phone-screen-btn" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="大丰收 · 适老化首页（大字号与语音入口）" data-gallery="dfs-screens">
                     <img class="reveal-img" src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="大丰收小程序首页截图" loading="lazy" decoding="async">
                   </button>
@@ -463,10 +463,14 @@
                   <button id="dfs-center-btn" class="phone-screen-btn" type="button" data-image="assets/apps/dfs-01-home.webp" data-caption="大丰收 · 适老化首页（大字号卡片 + 语音一句话预约入口 + 实时队列卡片）" data-gallery="dfs-screens">
                     <img id="dfs-center-img" class="reveal-img" src="assets/apps/dfs-01-home.webp" width="390" height="844" alt="大丰收小程序核心界面预览" loading="lazy" decoding="async">
                   </button>
-                  <div class="phone-label"><strong id="dfs-center-title">01 适老首页</strong><span id="dfs-center-sub">18px 正文 · 语音下单</span></div>
+                  <div class="phone-label">
+                    <button class="phone-step-btn" type="button" data-phone-step="-1" aria-label="上一页界面">‹</button>
+                    <div class="phone-label-meta"><strong id="dfs-center-title">01 适老首页</strong><span id="dfs-center-sub">18px 正文 · 语音下单</span></div>
+                    <button class="phone-step-btn" type="button" data-phone-step="1" aria-label="下一页界面">›</button>
+                  </div>
                 </div>
 
-                <div class="phone-shell">
+                <div class="phone-shell phone-shell-side">
                   <button class="phone-screen-btn" type="button" data-image="assets/apps/dfs-06-ai-order.webp" data-caption="大丰收 · AI 语音订单自动结构化核对界面" data-gallery="dfs-screens">
                     <img class="reveal-img" src="assets/apps/dfs-06-ai-order.webp" width="390" height="844" alt="大丰收 AI 自动整理订单核对页截图" loading="lazy" decoding="async">
                   </button>
@@ -834,6 +838,14 @@
       </section>
     </div>
   </main>
+
+  <nav class="mobile-dock" data-dock-theme="dark" aria-label="移动端章节导航">
+    <a href="#drama">短剧</a>
+    <a href="#pipeline">管线</a>
+    <a href="#apps">小程序</a>
+    <a href="#commercial">商业</a>
+    <a href="#resume">简历</a>
+  </nav>
 
   <dialog class="lightbox" aria-label="高清大图与节点拓扑检查器">
     <div class="lightbox-toolbar">

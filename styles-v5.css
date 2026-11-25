@@ -795,13 +795,9 @@ a {
   border-color: var(--gold);
 }
 
-/* Progressive Image Fade (safe for cached images) */
+/* Image transition (never hide unloaded lazy images behind opacity: 0) */
 img.reveal-img {
-  opacity: 0;
-  transition: opacity 0.42s ease, transform 0.55s var(--ease-out);
-}
-img.reveal-img.is-loaded {
-  opacity: 1;
+  transition: transform 0.55s var(--ease-out);
 }
 
 /* Short-Drama Node Proof Tabs */
@@ -1118,13 +1114,39 @@ img.reveal-img.is-loaded {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   font-size: 12px;
   padding-inline: 4px;
   color: var(--dark-muted);
 }
+.phone-label-meta {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
 .phone-label strong {
   color: var(--dark-text);
   font-weight: 600;
+}
+.phone-step-btn {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--dark-text);
+  font-size: 16px;
+  line-height: 1;
+  place-items: center;
+  flex-shrink: 0;
+}
+.phone-step-btn:active {
+  background: var(--gold);
+  color: #11141a;
 }
 
 .machine-strip {
@@ -1800,43 +1822,468 @@ dialog.lightbox::backdrop {
   }
 }
 
+/* Floating Mobile Bottom Dock (hidden on desktop) */
+.mobile-dock {
+  display: none;
+}
+
 @media (max-width: 760px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  /* Compact Header + Bottom Navigation Dock */
   .site-header {
-    padding: 8px 10px 8px 14px;
+    top: 10px;
+    width: calc(100% - 24px);
+    padding: 7px 10px 7px 14px;
     gap: 8px;
   }
   .site-nav {
     display: none;
   }
-  .hero-index-strip,
+  .lang-switch {
+    padding: 5px 11px;
+    font-size: 12px;
+  }
+
+  .mobile-dock {
+    position: fixed;
+    left: 50%;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(calc(100% - 24px), 400px);
+    z-index: 105;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 3px;
+    padding: 5px;
+    border-radius: 999px;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    transition: background-color 0.18s var(--ease-out), border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
+  }
+  .mobile-dock[data-dock-theme="dark"] {
+    background: rgba(14, 17, 25, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--dark-text);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.48);
+  }
+  .mobile-dock[data-dock-theme="light"] {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(20, 24, 29, 0.12);
+    color: var(--light-text);
+    box-shadow: 0 12px 30px rgba(20, 24, 29, 0.12);
+  }
+  .mobile-dock a {
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.72;
+    white-space: nowrap;
+    transition: opacity 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+  }
+  .mobile-dock[data-dock-theme="dark"] a.is-active {
+    opacity: 1;
+    background: var(--gold);
+    color: #11141a;
+  }
+  .mobile-dock[data-dock-theme="light"] a.is-active {
+    opacity: 1;
+    background: var(--light-text);
+    color: #ffffff;
+  }
+
+  /* Tighter Vertical Cadence & Edge-to-Edge Cards */
+  .hero-section {
+    padding: 76px 0 42px;
+  }
+  .hero-grid {
+    gap: 24px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .eyebrow::before {
+    width: 14px;
+  }
+  .hero-title {
+    font-size: 36px;
+  }
+  .hero-title-en {
+    margin-left: 10px;
+    font-size: 0.52em;
+  }
+  .hero-tagline {
+    font-size: 18.5px;
+    margin-top: 12px;
+  }
+  .hero-badges {
+    margin-top: 16px;
+    gap: 6px;
+  }
+  .hero-badges li {
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+  .hero-author {
+    margin-top: 18px;
+    padding: 12px;
+    gap: 12px;
+  }
+  .hero-portrait {
+    width: 48px;
+    height: 60px;
+  }
+  .hero-author p {
+    font-size: 12.5px;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  /* Hero Compare Frame: 4:3 Tall Aspect & Non-Colliding Staggered Labels */
+  .compare-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+  .compare-label {
+    font-size: 10.5px;
+    padding: 4px 9px;
+  }
+  .compare-label.left {
+    top: 10px;
+    left: 10px;
+  }
+  .compare-label.right {
+    top: auto;
+    bottom: 10px;
+    right: 10px;
+  }
+  .compare-handle {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+  .compare-caption-bar {
+    font-size: 11.5px;
+  }
+  .hero-index-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .hero-index-card {
+    padding: 10px 11px;
+  }
+  .hero-index-card strong {
+    font-size: 12.5px;
+  }
+
+  /* Chapters & Cards */
+  .chapter-section,
+  .gallery-section {
+    padding: 44px 0;
+  }
+  .atmosphere-bridge {
+    height: 64px;
+  }
+  .chapter-title {
+    font-size: 26px;
+  }
+  .chapter-lead {
+    font-size: 14.5px;
+    margin-top: 12px;
+  }
+  .meta-list {
+    margin-top: 18px;
+    padding-top: 14px;
+    gap: 9px;
+  }
+  .chapter-highlights {
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .showcase-card,
+  .commercial-block {
+    padding: 15px;
+    border-radius: 18px;
+    gap: 14px;
+  }
+  .card-head h3,
+  .block-head h3 {
+    font-size: 17px;
+  }
+  .card-head p,
+  .block-head p {
+    font-size: 13px;
+  }
+
+  /* Native Horizontal Scrollable Pill Bars */
+  .tab-bar,
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-inline: -4px;
+    padding: 2px 4px 4px;
+  }
+  .tab-bar::-webkit-scrollbar,
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-btn,
+  .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 7px 13px;
+    font-size: 12.5px;
+  }
+
+  /* Chapter 01 Drama Grids */
   .node-thumb-pair,
   .grid-2,
-  .grid-4,
-  .phone-trio,
-  .machine-strip,
   .xijuan-steps,
   .award-row,
   .competency-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .node-thumb-card img {
+    width: 64px;
+    height: 42px;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .zoom-badge {
+    font-size: 11px;
+    padding: 5px 9px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  /* Chapter 02 Pipeline 2x2 Matrix */
+  .pipeline-diagram {
+    padding: 12px;
+  }
+  .pipeline-nodes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .pipeline-node {
+    padding: 10px;
+  }
+  .pipeline-node strong {
+    font-size: 12.5px;
+  }
+  .pipeline-node span {
+    font-size: 11px;
+  }
+  .pipeline-readout {
+    padding: 12px;
+    margin-top: 10px;
+  }
+
+  /* Chapter 03 Single Interactive Phone Stage + 2x2 Machines */
+  .phone-shell-side {
+    display: none;
   }
   .phone-trio {
-    max-width: 340px;
+    display: block;
+    max-width: 256px;
     margin-inline: auto;
   }
   .phone-shell.is-featured {
     transform: none;
+    padding: 9px;
+    border-radius: 26px;
   }
-  .tools-strip {
+  .phone-step-btn {
+    display: grid;
+  }
+  .phone-label-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    text-align: center;
+  }
+  .machine-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
-  .course-strip-grid,
-  .ev-strip-5,
+  .machine-tile {
+    padding: 10px 8px;
+  }
+  .machine-tile-img {
+    height: 72px;
+    margin-bottom: 7px;
+  }
+  .machine-tile-img img {
+    max-height: 60px;
+  }
+  .xijuan-step {
+    padding: 12px 14px;
+  }
+  .award-badge {
+    padding: 12px;
+  }
+
+  /* Chapter 04 Zero-Orphan Course Grid & Swipeable Lookbook Carousels */
+  .editorial-header h2 {
+    font-size: 28px;
+  }
+  .course-strip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .course-strip-grid .light-media-btn:first-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+  .ev-strip-5 {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 10px;
+    padding-bottom: 4px;
+  }
+  .ev-strip-5::-webkit-scrollbar,
+  .chair-square-row::-webkit-scrollbar,
+  .chair-wide-row::-webkit-scrollbar {
+    display: none;
+  }
+  .ev-strip-5 .light-media-btn {
+    scroll-snap-align: start;
+  }
   .chair-square-row,
   .chair-wide-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 10px;
+    padding-bottom: 4px;
   }
-  .pipeline-nodes {
-    grid-template-columns: 1fr;
+  .chair-square-row .light-media-btn,
+  .chair-wide-row .light-media-btn {
+    scroll-snap-align: start;
+  }
+
+  /* Chapter 05 Resume Mobile 4x2 Tools & Contact */
+  .resume-section {
+    padding: 32px 0 36px;
+  }
+  .resume-card {
+    padding: 18px 16px;
+    border-radius: 20px;
+    gap: 22px;
+  }
+  .resume-top h2 {
+    font-size: 26px;
+  }
+  .resume-top .hero-actions {
+    width: 100%;
+  }
+  .tools-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .tool-tile {
+    padding: 10px 6px;
+    gap: 6px;
+  }
+  .tool-tile img,
+  .tool-tile svg {
+    width: 28px;
+    height: 28px;
+  }
+  .tool-tile strong {
+    font-size: 11.5px;
+  }
+  .tool-tile span {
+    font-size: 10.5px;
+  }
+  .exp-card {
+    padding: 16px;
+  }
+  .contact-banner {
+    padding: 18px 16px;
+    border-radius: 18px;
+    gap: 14px;
+  }
+  .contact-banner h3 {
+    font-size: 17px;
+  }
+  .contact-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .contact-actions .copy-status {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+  .contact-actions .btn {
+    width: 100%;
+    padding: 11px 10px;
+    font-size: 13px;
+  }
+  .contact-actions .btn:last-child {
+    grid-column: 1 / -1;
+  }
+  .site-footer {
+    padding: 20px 0 92px;
+    font-size: 12.5px;
+  }
+
+  /* Mobile Lightbox */
+  .lightbox-toolbar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .lightbox-caption {
+    font-size: 12.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .lightbox-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .lightbox-stage {
+    padding: 10px;
+  }
+  .lightbox-stage.is-zoomed img {
+    width: 240%;
   }
 }
 

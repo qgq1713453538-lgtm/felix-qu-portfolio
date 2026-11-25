@@ -17,13 +17,14 @@
     });
   }
 
-  // 2. Scroll progress bar + adaptive header theme + active nav spy
+  // 2. Scroll progress bar + adaptive header & mobile dock theme + active nav spy
   function initScrollChrome() {
     const progressEl = document.querySelector('#scroll-progress span');
     const header = document.querySelector('.site-header');
+    const dock = document.querySelector('.mobile-dock');
     const lightZone = document.querySelector('.zone-light');
-    const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
-    const sections = navLinks
+    const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"], .mobile-dock a[href^="#"]'));
+    const sections = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'))
       .map((a) => document.querySelector(a.getAttribute('href')))
       .filter(Boolean);
 
@@ -37,11 +38,19 @@
         progressEl.style.transform = `scaleX(${ratio.toFixed(4)})`;
       }
 
-      if (header && lightZone) {
+      if (lightZone) {
         const rect = lightZone.getBoundingClientRect();
-        const theme = rect.top <= 48 ? 'light' : 'dark';
-        if (header.dataset.headerTheme !== theme) {
-          header.dataset.headerTheme = theme;
+        if (header) {
+          const headerTheme = rect.top <= 48 ? 'light' : 'dark';
+          if (header.dataset.headerTheme !== headerTheme) {
+            header.dataset.headerTheme = headerTheme;
+          }
+        }
+        if (dock) {
+          const dockTheme = rect.top <= window.innerHeight - 54 ? 'light' : 'dark';
+          if (dock.dataset.dockTheme !== dockTheme) {
+            dock.dataset.dockTheme = dockTheme;
+          }
         }
       }
 
@@ -182,6 +191,7 @@
         const active = b.dataset.nodeTab === key;
         b.classList.toggle('is-active', active);
         b.setAttribute('aria-selected', String(active));
+        if (active) scrollPillIntoBar(b);
       });
       cards.forEach((c) => {
         c.classList.toggle('is-active', c.dataset.nodeCard === key);
@@ -218,32 +228,73 @@
     });
   }
 
-  // 8. Dafengshou Mini-Program Screen Switcher
+  function scrollPillIntoBar(pill) {
+    const bar = pill?.parentElement;
+    if (!bar || bar.scrollWidth <= bar.clientWidth) return;
+    const targetLeft = pill.offsetLeft - bar.clientWidth / 2 + pill.offsetWidth / 2;
+    bar.scrollTo({ left: Math.max(0, targetLeft), behavior: reducedMotion ? 'auto' : 'smooth' });
+  }
+
+  // 8. Dafengshou Mini-Program Screen Switcher (Tabs + Mobile Step/Swipe)
   function initPhoneSwitcher() {
     const pills = Array.from(document.querySelectorAll('[data-phone-screen]'));
     const centerImg = document.querySelector('#dfs-center-img');
     const centerBtn = document.querySelector('#dfs-center-btn');
     const centerTitle = document.querySelector('#dfs-center-title');
     const centerSub = document.querySelector('#dfs-center-sub');
+    const stepBtns = Array.from(document.querySelectorAll('[data-phone-step]'));
+    const featuredPhone = document.querySelector('.phone-shell.is-featured');
     if (!pills.length || !centerImg || !centerBtn) return;
 
-    pills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        pills.forEach((p) => p.classList.toggle('is-active', p === pill));
-        const src = pill.dataset.src;
-        const title = pill.dataset.title;
-        const sub = pill.dataset.sub;
-        const caption = pill.dataset.caption;
-        if (src) {
-          centerImg.src = src;
-          centerImg.alt = caption || title || '';
-          centerBtn.dataset.image = src;
-          centerBtn.dataset.caption = caption || title || '';
-        }
-        if (centerTitle && title) centerTitle.textContent = title;
-        if (centerSub && sub) centerSub.textContent = sub;
+    let currentIdx = Math.max(0, pills.findIndex((p) => p.classList.contains('is-active')));
+
+    function activate(idx, shouldScrollBar = true) {
+      currentIdx = (idx + pills.length) % pills.length;
+      const pill = pills[currentIdx];
+      pills.forEach((p, i) => p.classList.toggle('is-active', i === currentIdx));
+      if (shouldScrollBar) scrollPillIntoBar(pill);
+      const src = pill.dataset.src;
+      const title = pill.dataset.title;
+      const sub = pill.dataset.sub;
+      const caption = pill.dataset.caption;
+      if (src) {
+        centerImg.src = src;
+        centerImg.alt = caption || title || '';
+        centerBtn.dataset.image = src;
+        centerBtn.dataset.caption = caption || title || '';
+      }
+      if (centerTitle && title) centerTitle.textContent = title;
+      if (centerSub && sub) centerSub.textContent = sub;
+    }
+
+    pills.forEach((pill, i) => {
+      pill.addEventListener('click', () => activate(i));
+    });
+
+    stepBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const delta = parseInt(btn.dataset.phoneStep || '1', 10);
+        activate(currentIdx + delta);
       });
     });
+
+    if (featuredPhone) {
+      let startX = 0;
+      let startY = 0;
+      featuredPhone.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      featuredPhone.addEventListener('touchend', (e) => {
+        if (!e.changedTouches.length) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+          activate(currentIdx + (dx < 0 ? 1 : -1));
+        }
+      }, { passive: true });
+    }
   }
 
   // 9. Commercial Gallery Filter Tabs
@@ -260,6 +311,7 @@
           b.classList.toggle('is-active', active);
           b.setAttribute('aria-pressed', String(active));
         });
+        scrollPillIntoBar(btn);
         blocks.forEach((block) => {
           const show = filter === 'all' || block.dataset.category === filter;
           block.classList.toggle('is-filtered-out', !show);
